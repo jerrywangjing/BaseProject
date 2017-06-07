@@ -13,4 +13,7 @@
 // 例如： BgColor  [UIColor WhiteColor]
 
 
+#define ThemeColor [UIColor colorWithRed:34/255.0f green:151/255.0f blue:254/255.0f alpha:1.0f]
+
+
 #endif /* macros_h */

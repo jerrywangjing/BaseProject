@@ -1,6 +1,6 @@
 //
 //  UIImage+Extension.h
-//  QQ界面
+//
 //
 //  Created by JerryWang on 16/1/25.
 //  Copyright © 2016年 JerryWang. All rights reserved.
@@ -30,4 +30,7 @@
 - (UIImage * )makeRoundedCornerWithScale:(CGFloat)scale;
 /// image -> base64 字符串
 + (NSString *) image2DataURL: (UIImage *) image;
+//Base64图片 -> UIImage
++ (UIImage *) dataURL2Image: (NSString *) imgSrc;
+
 @end

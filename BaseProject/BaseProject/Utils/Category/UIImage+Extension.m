@@ -150,6 +150,16 @@
             alpha == kCGImageAlphaPremultipliedLast);
 }
 
+//Base64图片 -> UIImage
++ (UIImage *) dataURL2Image: (NSString *) imgSrc
+{
+    NSURL *url = [NSURL URLWithString: imgSrc];
+    NSData *data = [NSData dataWithContentsOfURL: url];
+    UIImage *image = [UIImage imageWithData: data];
+    
+    return image;
+}
+
 + (NSString *) image2DataURL: (UIImage *) image
 {
     NSData *imageData = nil;

@@ -7,8 +7,22 @@ target 'BaseProject' do
 
   # Pods for BaseProject
 
+#pod 'Masonry'
+#pod 'AFNetworking'
+#pod 'MJRefresh'
+#pod 'FMDB'
+#pod 'SAMKeychain'
+#pod 'IQKeyboardManager'
+#pod 'WZLBadge'  # 添加小红点工具
+#pod 'DateTools'
+#pod 'DACircularProgress' # 一个圆圈状的进度显示view
+#pod 'YYText'
+#pod 'ReactiveCocoa', '2.3.1'
+#pod 'TZImagePickerController'  # 照片选择控件
+
 pod 'MBProgressHUD'
 pod 'YYText'
+pod 'SDWebImage'
 
   target 'BaseProjectTests' do
     inherit! :search_paths

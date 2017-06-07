@@ -42,7 +42,8 @@
         if (!image) {
             NSData * imgData = [[NSData alloc] initWithBase64EncodedString:base64 options:0];
             image = [UIImage imageWithData:imgData];
-            [cacheManager storeImage:image forKey:cacheKey];
+            
+            [cacheManager storeImage:image forKey:cacheKey completion:nil];
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
