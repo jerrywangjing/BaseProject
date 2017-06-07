@@ -7,6 +7,7 @@
 //
 
 #import "NSDate+FormatTime.h"
+#import <NSDate+DateTools.h>
 
 #define  DefaultDateStyle @"yyyy-MM-dd HH:mm:ss"
 @implementation NSDate (FormatTime)

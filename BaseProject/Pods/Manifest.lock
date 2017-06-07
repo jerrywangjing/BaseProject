@@ -1,4 +1,5 @@
 PODS:
+  - DateTools (2.0.0)
   - MBProgressHUD (1.0.0)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
@@ -6,15 +7,17 @@ PODS:
   - YYText (1.0.7)
 
 DEPENDENCIES:
+  - DateTools
   - MBProgressHUD
   - SDWebImage
   - YYText
 
 SPEC CHECKSUMS:
+  DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 2fe9cd183266ac57455dc3da07699e715089ed6f
+PODFILE CHECKSUM: 4e7960a070be6b89cfff6b46977d0eaa903b174a
 
 COCOAPODS: 1.0.1

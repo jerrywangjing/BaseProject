@@ -14,7 +14,7 @@ target 'BaseProject' do
 #pod 'SAMKeychain'
 #pod 'IQKeyboardManager'
 #pod 'WZLBadge'  # 添加小红点工具
-#pod 'DateTools'
+pod 'DateTools'
 #pod 'DACircularProgress' # 一个圆圈状的进度显示view
 #pod 'YYText'
 #pod 'ReactiveCocoa', '2.3.1'

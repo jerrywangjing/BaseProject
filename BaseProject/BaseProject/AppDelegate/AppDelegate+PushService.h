@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate (PushService)
-
 /**
  推送相关在这里处理
  */

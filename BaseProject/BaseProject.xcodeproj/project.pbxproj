@@ -24,7 +24,6 @@
 		C44685F21EDBD1D7000A57F8 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44685EF1EDBD1D7000A57F8 /* MainTabBarController.m */; };
 		C44685F81EDBD42C000A57F8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44685F71EDBD42C000A57F8 /* LoginViewController.m */; };
 		C44686301EDBD970000A57F8 /* MBProgressHUD+CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = C446861B1EDBD970000A57F8 /* MBProgressHUD+CustomView.m */; };
-		C44686311EDBD970000A57F8 /* NSAttributedString+EmojiExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C446861D1EDBD970000A57F8 /* NSAttributedString+EmojiExtension.m */; };
 		C44686321EDBD970000A57F8 /* NSDate+FormatTime.m in Sources */ = {isa = PBXBuildFile; fileRef = C446861F1EDBD970000A57F8 /* NSDate+FormatTime.m */; };
 		C44686331EDBD970000A57F8 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = C44686211EDBD970000A57F8 /* NSString+Hash.m */; };
 		C44686341EDBD970000A57F8 /* NSString+WJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C44686231EDBD970000A57F8 /* NSString+WJExtension.m */; };
@@ -162,8 +161,6 @@
 		C44685F71EDBD42C000A57F8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		C446861A1EDBD970000A57F8 /* MBProgressHUD+CustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+CustomView.h"; sourceTree = "<group>"; };
 		C446861B1EDBD970000A57F8 /* MBProgressHUD+CustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+CustomView.m"; sourceTree = "<group>"; };
-		C446861C1EDBD970000A57F8 /* NSAttributedString+EmojiExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+EmojiExtension.h"; sourceTree = "<group>"; };
-		C446861D1EDBD970000A57F8 /* NSAttributedString+EmojiExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+EmojiExtension.m"; sourceTree = "<group>"; };
 		C446861E1EDBD970000A57F8 /* NSDate+FormatTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+FormatTime.h"; sourceTree = "<group>"; };
 		C446861F1EDBD970000A57F8 /* NSDate+FormatTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+FormatTime.m"; sourceTree = "<group>"; };
 		C44686201EDBD970000A57F8 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
@@ -618,8 +615,6 @@
 				C446861B1EDBD970000A57F8 /* MBProgressHUD+CustomView.m */,
 				C44686631EDD06CA000A57F8 /* MBProgressHUD+WJ.h */,
 				C44686641EDD06CA000A57F8 /* MBProgressHUD+WJ.m */,
-				C446861C1EDBD970000A57F8 /* NSAttributedString+EmojiExtension.h */,
-				C446861D1EDBD970000A57F8 /* NSAttributedString+EmojiExtension.m */,
 				C446861E1EDBD970000A57F8 /* NSDate+FormatTime.h */,
 				C446861F1EDBD970000A57F8 /* NSDate+FormatTime.m */,
 				C44686201EDBD970000A57F8 /* NSString+Hash.h */,
@@ -1125,7 +1120,6 @@
 				C4E1F5811EE68F2100CBB6C7 /* ThumbsViewController.m in Sources */,
 				C4E1F57A1EE68F2100CBB6C7 /* ReaderThumbQueue.m in Sources */,
 				C4E1F50E1EE64C4200CBB6C7 /* DBManager.m in Sources */,
-				C44686311EDBD970000A57F8 /* NSAttributedString+EmojiExtension.m in Sources */,
 				C44686341EDBD970000A57F8 /* NSString+WJExtension.m in Sources */,
 				C4E1F5821EE68F2100CBB6C7 /* UIXToolbarView.m in Sources */,
 				C4E1F57D1EE68F2100CBB6C7 /* ReaderThumbsView.m in Sources */,
