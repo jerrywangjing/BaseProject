@@ -10,6 +10,8 @@
 		4E6BF89396A8FDAC73FBE61F /* libPods-BaseProjectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6503479302CAE14867671D7 /* libPods-BaseProjectUITests.a */; };
 		621F00176453F03A93CF20FE /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4881045C41F76123E32946D0 /* libPods-BaseProject.a */; };
 		6EA1A27B65DB750EED03E10E /* libPods-BaseProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4E1A25930E2ACD38E866D7 /* libPods-BaseProjectTests.a */; };
+		C43863221F244C4700D5B0ED /* GlobeConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C43863211F244C4700D5B0ED /* GlobeConst.m */; };
+		C438632B1F24599000D5B0ED /* HTTPRequstConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C438632A1F24599000D5B0ED /* HTTPRequstConst.m */; };
 		C44685771EDBBCCC000A57F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C44685761EDBBCCC000A57F8 /* main.m */; };
 		C446857A1EDBBCCC000A57F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C44685791EDBBCCC000A57F8 /* AppDelegate.m */; };
 		C446857D1EDBBCCC000A57F8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C446857C1EDBBCCC000A57F8 /* ViewController.m */; };
@@ -125,6 +127,10 @@
 		6CC331C2F1DE185F1D4E7A22 /* Pods-BaseProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProjectTests/Pods-BaseProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		815BC97FCD7C2F84BC59DFD8 /* Pods-BaseProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProjectUITests/Pods-BaseProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3147F0ACD61961EFC42BC5C /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
+		C43863201F244C4700D5B0ED /* GlobeConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobeConst.h; sourceTree = "<group>"; };
+		C43863211F244C4700D5B0ED /* GlobeConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobeConst.m; sourceTree = "<group>"; };
+		C43863291F24599000D5B0ED /* HTTPRequstConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRequstConst.h; sourceTree = "<group>"; };
+		C438632A1F24599000D5B0ED /* HTTPRequstConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPRequstConst.m; sourceTree = "<group>"; };
 		C44685721EDBBCCC000A57F8 /* BaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44685761EDBBCCC000A57F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C44685781EDBBCCC000A57F8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = BaseProject/AppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -141,8 +147,6 @@
 		C44685961EDBBCCC000A57F8 /* BaseProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaseProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C446859A1EDBBCCC000A57F8 /* BaseProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseProjectUITests.m; sourceTree = "<group>"; };
 		C446859C1EDBBCCC000A57F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C44685AC1EDBBD76000A57F8 /* APIMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIMacros.h; sourceTree = "<group>"; };
-		C44685AD1EDBBD76000A57F8 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		C44685AE1EDBBD76000A57F8 /* FontColorMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontColorMacros.h; sourceTree = "<group>"; };
 		C44685AF1EDBBD76000A57F8 /* HeaderMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderMacros.h; sourceTree = "<group>"; };
 		C44685B01EDBBD76000A57F8 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
@@ -362,7 +366,7 @@
 			children = (
 				C44685A91EDBBD76000A57F8 /* AppDelegate */,
 				C44685AA1EDBBD76000A57F8 /* BaseController */,
-				C44685AB1EDBBD76000A57F8 /* MacrosDefine */,
+				C44685AB1EDBBD76000A57F8 /* Macros&Const */,
 				C44685B31EDBBD76000A57F8 /* Manager */,
 				C44685B41EDBBD76000A57F8 /* Modules */,
 				C4E1F50F1EE68F2100CBB6C7 /* ThirdParyLib */,
@@ -430,17 +434,20 @@
 			path = BaseController;
 			sourceTree = "<group>";
 		};
-		C44685AB1EDBBD76000A57F8 /* MacrosDefine */ = {
+		C44685AB1EDBBD76000A57F8 /* Macros&Const */ = {
 			isa = PBXGroup;
 			children = (
-				C44685AC1EDBBD76000A57F8 /* APIMacros.h */,
-				C44685AD1EDBBD76000A57F8 /* Constant.h */,
+				C43863291F24599000D5B0ED /* HTTPRequstConst.h */,
+				C438632A1F24599000D5B0ED /* HTTPRequstConst.m */,
+				C43863201F244C4700D5B0ED /* GlobeConst.h */,
+				C43863211F244C4700D5B0ED /* GlobeConst.m */,
 				C44685AE1EDBBD76000A57F8 /* FontColorMacros.h */,
 				C44685AF1EDBBD76000A57F8 /* HeaderMacros.h */,
 				C44685B01EDBBD76000A57F8 /* Macros.h */,
 				C44685B11EDBBD76000A57F8 /* PathMacros.h */,
 				C44685B21EDBBD76000A57F8 /* UtilsMacros.h */,
 			);
+			name = "Macros&Const";
 			path = MacrosDefine;
 			sourceTree = "<group>";
 		};
@@ -1109,6 +1116,7 @@
 				C44686741EDD0CF1000A57F8 /* UserInfo.m in Sources */,
 				C446857D1EDBBCCC000A57F8 /* ViewController.m in Sources */,
 				C44685F81EDBD42C000A57F8 /* LoginViewController.m in Sources */,
+				C438632B1F24599000D5B0ED /* HTTPRequstConst.m in Sources */,
 				C44686371EDBD970000A57F8 /* UIImageView+Base64ImageCache.m in Sources */,
 				C4E1F5801EE68F2100CBB6C7 /* ThumbsMainToolbar.m in Sources */,
 				C4E1F4FF1EE6478200CBB6C7 /* NewFeatureViewController.m in Sources */,
@@ -1123,6 +1131,7 @@
 				C44686341EDBD970000A57F8 /* NSString+WJExtension.m in Sources */,
 				C4E1F5821EE68F2100CBB6C7 /* UIXToolbarView.m in Sources */,
 				C4E1F57D1EE68F2100CBB6C7 /* ReaderThumbsView.m in Sources */,
+				C43863221F244C4700D5B0ED /* GlobeConst.m in Sources */,
 				C44686351EDBD970000A57F8 /* UIImage+Extension.m in Sources */,
 				C4E1F5771EE68F2100CBB6C7 /* ReaderMainToolbar.m in Sources */,
 				C446866E1EDD0B96000A57F8 /* RootViewController.m in Sources */,
