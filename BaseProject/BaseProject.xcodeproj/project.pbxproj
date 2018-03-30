@@ -31,6 +31,28 @@
 		C4225F9F206CC7B7008532B9 /* NSDate+WJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225F9E206CC7B7008532B9 /* NSDate+WJExtension.m */; };
 		C4225FA2206CC994008532B9 /* WJNumberCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FA1206CC994008532B9 /* WJNumberCheck.m */; };
 		C4225FA7206CDCAA008532B9 /* JPFPSStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FA6206CDCAA008532B9 /* JPFPSStatus.m */; };
+		C4225FB3206DDE0A008532B9 /* HMHealthRecordFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FB1206DDE0A008532B9 /* HMHealthRecordFormView.m */; };
+		C4225FB7206DDE8E008532B9 /* HMPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FB5206DDE8E008532B9 /* HMPopView.m */; };
+		C4225FBB206DDF06008532B9 /* HMHealthRecordListView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FBA206DDF06008532B9 /* HMHealthRecordListView.m */; };
+		C4225FC9206DDF92008532B9 /* PYSearch.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C4225FBD206DDF92008532B9 /* PYSearch.bundle */; };
+		C4225FCA206DDF92008532B9 /* PYSearchConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FC0206DDF92008532B9 /* PYSearchConst.m */; };
+		C4225FCB206DDF92008532B9 /* PYSearchSuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FC2206DDF92008532B9 /* PYSearchSuggestionViewController.m */; };
+		C4225FCC206DDF92008532B9 /* PYSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FC4206DDF92008532B9 /* PYSearchViewController.m */; };
+		C4225FCD206DDF92008532B9 /* UIColor+PYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FC6206DDF92008532B9 /* UIColor+PYExtension.m */; };
+		C4225FCE206DDF92008532B9 /* UIView+PYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FC8206DDF92008532B9 /* UIView+PYExtension.m */; };
+		C4225FD1206DDFD8008532B9 /* HMSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FCF206DDFD8008532B9 /* HMSearchBar.m */; };
+		C4225FE4206DE016008532B9 /* ChineseInclude.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FD4206DE016008532B9 /* ChineseInclude.m */; };
+		C4225FE5206DE016008532B9 /* ChineseToPinyinResource.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FD6206DE016008532B9 /* ChineseToPinyinResource.m */; };
+		C4225FE6206DE016008532B9 /* HanyuPinyinOutputFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FD8206DE016008532B9 /* HanyuPinyinOutputFormat.m */; };
+		C4225FE7206DE016008532B9 /* NSString+PinYin4Cocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FDA206DE016008532B9 /* NSString+PinYin4Cocoa.m */; };
+		C4225FE8206DE016008532B9 /* PinyinFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FDC206DE016008532B9 /* PinyinFormatter.m */; };
+		C4225FE9206DE016008532B9 /* PinYinForObjc.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FDE206DE016008532B9 /* PinYinForObjc.m */; };
+		C4225FEA206DE016008532B9 /* PinyinHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FE0206DE016008532B9 /* PinyinHelper.m */; };
+		C4225FEB206DE016008532B9 /* unicode_to_hanyu_pinyin.txt in Resources */ = {isa = PBXBuildFile; fileRef = C4225FE1206DE016008532B9 /* unicode_to_hanyu_pinyin.txt */; };
+		C4225FEC206DE016008532B9 /* ZYPinYinSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FE3206DE016008532B9 /* ZYPinYinSearch.m */; };
+		C4225FF2206DE48F008532B9 /* HMGCDSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FEF206DE48E008532B9 /* HMGCDSocketManager.m */; };
+		C4225FF3206DE48F008532B9 /* HMWebSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FF1206DE48E008532B9 /* HMWebSocketManager.m */; };
+		C4225FF6206E18F6008532B9 /* HMBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4225FF5206E18F6008532B9 /* HMBaseWebViewController.m */; };
 		C438632B1F24599000D5B0ED /* HTTPRequstConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C438632A1F24599000D5B0ED /* HTTPRequstConst.m */; };
 		C44685771EDBBCCC000A57F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C44685761EDBBCCC000A57F8 /* main.m */; };
 		C446857A1EDBBCCC000A57F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C44685791EDBBCCC000A57F8 /* AppDelegate.m */; };
@@ -186,6 +208,49 @@
 		C4225FA1206CC994008532B9 /* WJNumberCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJNumberCheck.m; sourceTree = "<group>"; };
 		C4225FA5206CDCA9008532B9 /* JPFPSStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPFPSStatus.h; sourceTree = "<group>"; };
 		C4225FA6206CDCAA008532B9 /* JPFPSStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPFPSStatus.m; sourceTree = "<group>"; };
+		C4225FB1206DDE0A008532B9 /* HMHealthRecordFormView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMHealthRecordFormView.m; sourceTree = "<group>"; };
+		C4225FB2206DDE0A008532B9 /* HMHealthRecordFormView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMHealthRecordFormView.h; sourceTree = "<group>"; };
+		C4225FB5206DDE8E008532B9 /* HMPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPopView.m; sourceTree = "<group>"; };
+		C4225FB6206DDE8E008532B9 /* HMPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPopView.h; sourceTree = "<group>"; };
+		C4225FB9206DDF06008532B9 /* HMHealthRecordListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMHealthRecordListView.h; sourceTree = "<group>"; };
+		C4225FBA206DDF06008532B9 /* HMHealthRecordListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMHealthRecordListView.m; sourceTree = "<group>"; };
+		C4225FBD206DDF92008532B9 /* PYSearch.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PYSearch.bundle; sourceTree = "<group>"; };
+		C4225FBE206DDF92008532B9 /* PYSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYSearch.h; sourceTree = "<group>"; };
+		C4225FBF206DDF92008532B9 /* PYSearchConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYSearchConst.h; sourceTree = "<group>"; };
+		C4225FC0206DDF92008532B9 /* PYSearchConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYSearchConst.m; sourceTree = "<group>"; };
+		C4225FC1206DDF92008532B9 /* PYSearchSuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYSearchSuggestionViewController.h; sourceTree = "<group>"; };
+		C4225FC2206DDF92008532B9 /* PYSearchSuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYSearchSuggestionViewController.m; sourceTree = "<group>"; };
+		C4225FC3206DDF92008532B9 /* PYSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYSearchViewController.h; sourceTree = "<group>"; };
+		C4225FC4206DDF92008532B9 /* PYSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYSearchViewController.m; sourceTree = "<group>"; };
+		C4225FC5206DDF92008532B9 /* UIColor+PYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+PYExtension.h"; sourceTree = "<group>"; };
+		C4225FC6206DDF92008532B9 /* UIColor+PYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PYExtension.m"; sourceTree = "<group>"; };
+		C4225FC7206DDF92008532B9 /* UIView+PYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PYExtension.h"; sourceTree = "<group>"; };
+		C4225FC8206DDF92008532B9 /* UIView+PYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PYExtension.m"; sourceTree = "<group>"; };
+		C4225FCF206DDFD8008532B9 /* HMSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSearchBar.m; sourceTree = "<group>"; };
+		C4225FD0206DDFD8008532B9 /* HMSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSearchBar.h; sourceTree = "<group>"; };
+		C4225FD3206DE016008532B9 /* ChineseInclude.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseInclude.h; sourceTree = "<group>"; };
+		C4225FD4206DE016008532B9 /* ChineseInclude.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseInclude.m; sourceTree = "<group>"; };
+		C4225FD5206DE016008532B9 /* ChineseToPinyinResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseToPinyinResource.h; sourceTree = "<group>"; };
+		C4225FD6206DE016008532B9 /* ChineseToPinyinResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseToPinyinResource.m; sourceTree = "<group>"; };
+		C4225FD7206DE016008532B9 /* HanyuPinyinOutputFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HanyuPinyinOutputFormat.h; sourceTree = "<group>"; };
+		C4225FD8206DE016008532B9 /* HanyuPinyinOutputFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HanyuPinyinOutputFormat.m; sourceTree = "<group>"; };
+		C4225FD9206DE016008532B9 /* NSString+PinYin4Cocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PinYin4Cocoa.h"; sourceTree = "<group>"; };
+		C4225FDA206DE016008532B9 /* NSString+PinYin4Cocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PinYin4Cocoa.m"; sourceTree = "<group>"; };
+		C4225FDB206DE016008532B9 /* PinyinFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinFormatter.h; sourceTree = "<group>"; };
+		C4225FDC206DE016008532B9 /* PinyinFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinFormatter.m; sourceTree = "<group>"; };
+		C4225FDD206DE016008532B9 /* PinYinForObjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinYinForObjc.h; sourceTree = "<group>"; };
+		C4225FDE206DE016008532B9 /* PinYinForObjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinYinForObjc.m; sourceTree = "<group>"; };
+		C4225FDF206DE016008532B9 /* PinyinHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinHelper.h; sourceTree = "<group>"; };
+		C4225FE0206DE016008532B9 /* PinyinHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinHelper.m; sourceTree = "<group>"; };
+		C4225FE1206DE016008532B9 /* unicode_to_hanyu_pinyin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unicode_to_hanyu_pinyin.txt; sourceTree = "<group>"; };
+		C4225FE2206DE016008532B9 /* ZYPinYinSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYPinYinSearch.h; sourceTree = "<group>"; };
+		C4225FE3206DE016008532B9 /* ZYPinYinSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYPinYinSearch.m; sourceTree = "<group>"; };
+		C4225FEE206DE48E008532B9 /* HMGCDSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMGCDSocketManager.h; sourceTree = "<group>"; };
+		C4225FEF206DE48E008532B9 /* HMGCDSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMGCDSocketManager.m; sourceTree = "<group>"; };
+		C4225FF0206DE48E008532B9 /* HMWebSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMWebSocketManager.h; sourceTree = "<group>"; };
+		C4225FF1206DE48E008532B9 /* HMWebSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMWebSocketManager.m; sourceTree = "<group>"; };
+		C4225FF4206E18F6008532B9 /* HMBaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMBaseWebViewController.h; sourceTree = "<group>"; };
+		C4225FF5206E18F6008532B9 /* HMBaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMBaseWebViewController.m; sourceTree = "<group>"; };
 		C43863291F24599000D5B0ED /* HTTPRequstConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPRequstConst.h; sourceTree = "<group>"; };
 		C438632A1F24599000D5B0ED /* HTTPRequstConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPRequstConst.m; sourceTree = "<group>"; };
 		C44685721EDBBCCC000A57F8 /* BaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -519,6 +584,99 @@
 			path = JPFPSStatus;
 			sourceTree = "<group>";
 		};
+		C4225FAF206DDD0D008532B9 /* CustomLib */ = {
+			isa = PBXGroup;
+			children = (
+				C4225FB8206DDED9008532B9 /* WJListTableView */,
+				C4225FB4206DDE66008532B9 /* WJPopView */,
+				C4225FB0206DDDD1008532B9 /* WJFormTabelView */,
+			);
+			path = CustomLib;
+			sourceTree = "<group>";
+		};
+		C4225FB0206DDDD1008532B9 /* WJFormTabelView */ = {
+			isa = PBXGroup;
+			children = (
+				C4225FB2206DDE0A008532B9 /* HMHealthRecordFormView.h */,
+				C4225FB1206DDE0A008532B9 /* HMHealthRecordFormView.m */,
+			);
+			path = WJFormTabelView;
+			sourceTree = "<group>";
+		};
+		C4225FB4206DDE66008532B9 /* WJPopView */ = {
+			isa = PBXGroup;
+			children = (
+				C4225FB6206DDE8E008532B9 /* HMPopView.h */,
+				C4225FB5206DDE8E008532B9 /* HMPopView.m */,
+			);
+			path = WJPopView;
+			sourceTree = "<group>";
+		};
+		C4225FB8206DDED9008532B9 /* WJListTableView */ = {
+			isa = PBXGroup;
+			children = (
+				C4225FD0206DDFD8008532B9 /* HMSearchBar.h */,
+				C4225FCF206DDFD8008532B9 /* HMSearchBar.m */,
+				C4225FB9206DDF06008532B9 /* HMHealthRecordListView.h */,
+				C4225FBA206DDF06008532B9 /* HMHealthRecordListView.m */,
+			);
+			path = WJListTableView;
+			sourceTree = "<group>";
+		};
+		C4225FBC206DDF92008532B9 /* PYSearch */ = {
+			isa = PBXGroup;
+			children = (
+				C4225FBD206DDF92008532B9 /* PYSearch.bundle */,
+				C4225FBE206DDF92008532B9 /* PYSearch.h */,
+				C4225FBF206DDF92008532B9 /* PYSearchConst.h */,
+				C4225FC0206DDF92008532B9 /* PYSearchConst.m */,
+				C4225FC1206DDF92008532B9 /* PYSearchSuggestionViewController.h */,
+				C4225FC2206DDF92008532B9 /* PYSearchSuggestionViewController.m */,
+				C4225FC3206DDF92008532B9 /* PYSearchViewController.h */,
+				C4225FC4206DDF92008532B9 /* PYSearchViewController.m */,
+				C4225FC5206DDF92008532B9 /* UIColor+PYExtension.h */,
+				C4225FC6206DDF92008532B9 /* UIColor+PYExtension.m */,
+				C4225FC7206DDF92008532B9 /* UIView+PYExtension.h */,
+				C4225FC8206DDF92008532B9 /* UIView+PYExtension.m */,
+			);
+			path = PYSearch;
+			sourceTree = "<group>";
+		};
+		C4225FD2206DE016008532B9 /* PinYinSearchLib */ = {
+			isa = PBXGroup;
+			children = (
+				C4225FD3206DE016008532B9 /* ChineseInclude.h */,
+				C4225FD4206DE016008532B9 /* ChineseInclude.m */,
+				C4225FD5206DE016008532B9 /* ChineseToPinyinResource.h */,
+				C4225FD6206DE016008532B9 /* ChineseToPinyinResource.m */,
+				C4225FD7206DE016008532B9 /* HanyuPinyinOutputFormat.h */,
+				C4225FD8206DE016008532B9 /* HanyuPinyinOutputFormat.m */,
+				C4225FD9206DE016008532B9 /* NSString+PinYin4Cocoa.h */,
+				C4225FDA206DE016008532B9 /* NSString+PinYin4Cocoa.m */,
+				C4225FDB206DE016008532B9 /* PinyinFormatter.h */,
+				C4225FDC206DE016008532B9 /* PinyinFormatter.m */,
+				C4225FDD206DE016008532B9 /* PinYinForObjc.h */,
+				C4225FDE206DE016008532B9 /* PinYinForObjc.m */,
+				C4225FDF206DE016008532B9 /* PinyinHelper.h */,
+				C4225FE0206DE016008532B9 /* PinyinHelper.m */,
+				C4225FE1206DE016008532B9 /* unicode_to_hanyu_pinyin.txt */,
+				C4225FE2206DE016008532B9 /* ZYPinYinSearch.h */,
+				C4225FE3206DE016008532B9 /* ZYPinYinSearch.m */,
+			);
+			path = PinYinSearchLib;
+			sourceTree = "<group>";
+		};
+		C4225FED206DE48E008532B9 /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				C4225FEE206DE48E008532B9 /* HMGCDSocketManager.h */,
+				C4225FEF206DE48E008532B9 /* HMGCDSocketManager.m */,
+				C4225FF0206DE48E008532B9 /* HMWebSocketManager.h */,
+				C4225FF1206DE48E008532B9 /* HMWebSocketManager.m */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
 		C44685691EDBBCCC000A57F8 = {
 			isa = PBXGroup;
 			children = (
@@ -672,12 +830,14 @@
 		C44685B71EDBBD76000A57F8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C4225FD2206DE016008532B9 /* PinYinSearchLib */,
 				C4225F99206CC598008532B9 /* RuntimeKit */,
 				C4E1F5021EE6492500CBB6C7 /* RegularExpression */,
 				C4E1F4F61EE6478200CBB6C7 /* AdPage */,
 				C4E1F4FC1EE6478200CBB6C7 /* HTTPTool */,
 				C44686001EDBD821000A57F8 /* Category */,
 				C4225FA4206CDC8B008532B9 /* JPFPSStatus */,
+				C4225FED206DE48E008532B9 /* WebSocket */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -698,6 +858,8 @@
 			children = (
 				C44685E71EDBD1D7000A57F8 /* WJWebViewController.h */,
 				C44685E81EDBD1D7000A57F8 /* WJWebViewController.m */,
+				C4225FF4206E18F6008532B9 /* HMBaseWebViewController.h */,
+				C4225FF5206E18F6008532B9 /* HMBaseWebViewController.m */,
 			);
 			path = WebViewController;
 			sourceTree = "<group>";
@@ -807,11 +969,13 @@
 		C4E1F50F1EE68F2100CBB6C7 /* ThirdParyLib */ = {
 			isa = PBXGroup;
 			children = (
+				C4225FAF206DDD0D008532B9 /* CustomLib */,
 				C4225F92206CC309008532B9 /* WJDatePickerView */,
 				C4225F8B206CBEE3008532B9 /* WJAlertView */,
 				C4225F67206C8BDB008532B9 /* LDRefresh */,
 				C4E1F5101EE68F2100CBB6C7 /* GDataXML */,
 				C4E1F5131EE68F2100CBB6C7 /* PDFReader */,
+				C4225FBC206DDF92008532B9 /* PYSearch */,
 			);
 			path = ThirdParyLib;
 			sourceTree = "<group>";
@@ -1028,6 +1192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4225FEB206DE016008532B9 /* unicode_to_hanyu_pinyin.txt in Resources */,
 				C446864A1EDBEC6E000A57F8 /* MBHUD_Error@2x.png in Resources */,
 				C4E1F55C1EE68F2100CBB6C7 /* Reader-Button-N@3x.png in Resources */,
 				C4E1F5631EE68F2100CBB6C7 /* Reader-Mark-N.png in Resources */,
@@ -1042,6 +1207,7 @@
 				C4E1F5571EE68F2100CBB6C7 /* Reader-Button-H.png in Resources */,
 				C4E1F56E1EE68F2100CBB6C7 /* Reader-Thumbs@3x.png in Resources */,
 				C446864C1EDBEC6E000A57F8 /* MBHUD_Info@2x.png in Resources */,
+				C4225FC9206DDF92008532B9 /* PYSearch.bundle in Resources */,
 				C4E1F5581EE68F2100CBB6C7 /* Reader-Button-H@2x.png in Resources */,
 				C44686511EDBEC6E000A57F8 /* MBHUD_Warn@3x.png in Resources */,
 				C446864B1EDBEC6E000A57F8 /* MBHUD_Error@3x.png in Resources */,
@@ -1227,10 +1393,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4225FCA206DDF92008532B9 /* PYSearchConst.m in Sources */,
 				C4225F95206CC32C008532B9 /* WJSysDatePickerView.m in Sources */,
 				C4225F84206C91CB008532B9 /* HMBaseTableViewCell.m in Sources */,
 				C44686741EDD0CF1000A57F8 /* UserInfo.m in Sources */,
 				C446857D1EDBBCCC000A57F8 /* ViewController.m in Sources */,
+				C4225FE9206DE016008532B9 /* PinYinForObjc.m in Sources */,
 				C438632B1F24599000D5B0ED /* HTTPRequstConst.m in Sources */,
 				C44686371EDBD970000A57F8 /* UIImageView+Base64ImageCache.m in Sources */,
 				C4E1F5801EE68F2100CBB6C7 /* ThumbsMainToolbar.m in Sources */,
@@ -1241,33 +1409,46 @@
 				C4E1F5701EE68F2100CBB6C7 /* ReaderConstants.m in Sources */,
 				C4E1F57C1EE68F2100CBB6C7 /* ReaderThumbRequest.m in Sources */,
 				C4E1F5811EE68F2100CBB6C7 /* ThumbsViewController.m in Sources */,
+				C4225FF2206DE48F008532B9 /* HMGCDSocketManager.m in Sources */,
 				C4225F60206B8467008532B9 /* HMRefreshTableViewController.m in Sources */,
+				C4225FB7206DDE8E008532B9 /* HMPopView.m in Sources */,
 				C4E1F57A1EE68F2100CBB6C7 /* ReaderThumbQueue.m in Sources */,
 				C4E1F50E1EE64C4200CBB6C7 /* DBManager.m in Sources */,
 				C44686341EDBD970000A57F8 /* NSString+WJExtension.m in Sources */,
+				C4225FE5206DE016008532B9 /* ChineseToPinyinResource.m in Sources */,
 				C4E1F5821EE68F2100CBB6C7 /* UIXToolbarView.m in Sources */,
 				C4E1F57D1EE68F2100CBB6C7 /* ReaderThumbsView.m in Sources */,
+				C4225FEA206DE016008532B9 /* PinyinHelper.m in Sources */,
 				C44686351EDBD970000A57F8 /* UIImage+Extension.m in Sources */,
 				C4E1F5771EE68F2100CBB6C7 /* ReaderMainToolbar.m in Sources */,
+				C4225FE4206DE016008532B9 /* ChineseInclude.m in Sources */,
+				C4225FE6206DE016008532B9 /* HanyuPinyinOutputFormat.m in Sources */,
 				C4225F83206C91CB008532B9 /* HMBaseView.m in Sources */,
 				C4225F70206C8BDB008532B9 /* LDRefreshFooterView.m in Sources */,
 				C446866E1EDD0B96000A57F8 /* RootViewController.m in Sources */,
 				C4E1F5711EE68F2100CBB6C7 /* ReaderContentPage.m in Sources */,
 				C4225F90206CBF2A008532B9 /* WJAlertSheetView.m in Sources */,
+				C4225FCC206DDF92008532B9 /* PYSearchViewController.m in Sources */,
 				C446857A1EDBBCCC000A57F8 /* AppDelegate.m in Sources */,
 				C44686381EDBD970000A57F8 /* UIImageView+PlayGIF.m in Sources */,
+				C4225FD1206DDFD8008532B9 /* HMSearchBar.m in Sources */,
 				C44686711EDD0CAB000A57F8 /* UserManager.m in Sources */,
+				C4225FCE206DDF92008532B9 /* UIView+PYExtension.m in Sources */,
 				C4225F89206C9436008532B9 /* GlobalConst.m in Sources */,
+				C4225FE7206DE016008532B9 /* NSString+PinYin4Cocoa.m in Sources */,
 				C44685F11EDBD1D7000A57F8 /* MainNavController.m in Sources */,
 				C4E1F5751EE68F2100CBB6C7 /* ReaderDocumentOutline.m in Sources */,
 				C4225F5D206B7988008532B9 /* HomeViewController.m in Sources */,
 				C4E1F5051EE6492500CBB6C7 /* RegularExpression.m in Sources */,
 				C44685F21EDBD1D7000A57F8 /* MainTabBarController.m in Sources */,
 				C44686361EDBD970000A57F8 /* UIImage+GIF.m in Sources */,
+				C4225FF6206E18F6008532B9 /* HMBaseWebViewController.m in Sources */,
+				C4225FBB206DDF06008532B9 /* HMHealthRecordListView.m in Sources */,
 				C4E1F57E1EE68F2100CBB6C7 /* ReaderThumbView.m in Sources */,
 				C4225F98206CC40D008532B9 /* MBProgressHUD+CustomView.m in Sources */,
 				C4225FA7206CDCAA008532B9 /* JPFPSStatus.m in Sources */,
 				C4225F57206B7932008532B9 /* LoginViewController.m in Sources */,
+				C4225FE8206DE016008532B9 /* PinyinFormatter.m in Sources */,
 				C4E1F57F1EE68F2100CBB6C7 /* ReaderViewController.m in Sources */,
 				C4225F74206C8BDB008532B9 /* UIScrollView+LDRefresh.m in Sources */,
 				C4E1F5741EE68F2100CBB6C7 /* ReaderDocument.m in Sources */,
@@ -1278,6 +1459,8 @@
 				C4E1F50B1EE64BEC00CBB6C7 /* DataManager.m in Sources */,
 				C446863A1EDBD970000A57F8 /* UIViewController+WJExtension.m in Sources */,
 				C4E1F56F1EE68F2100CBB6C7 /* CGPDFDocument.m in Sources */,
+				C4225FEC206DE016008532B9 /* ZYPinYinSearch.m in Sources */,
+				C4225FCB206DDF92008532B9 /* PYSearchSuggestionViewController.m in Sources */,
 				C4E1F57B1EE68F2100CBB6C7 /* ReaderThumbRender.m in Sources */,
 				C44686331EDBD970000A57F8 /* NSString+Hash.m in Sources */,
 				C446866B1EDD0AF9000A57F8 /* AppDelegate+PushService.m in Sources */,
@@ -1288,12 +1471,15 @@
 				C4225F9C206CC5AB008532B9 /* RuntimeKit.m in Sources */,
 				C4225F91206CBF2A008532B9 /* WJAlertView.m in Sources */,
 				C44685771EDBBCCC000A57F8 /* main.m in Sources */,
+				C4225FCD206DDF92008532B9 /* UIColor+PYExtension.m in Sources */,
 				C44686681EDD0AE9000A57F8 /* AppDelegate+AppService.m in Sources */,
 				C44685CC1EDBC4AB000A57F8 /* AppManager.m in Sources */,
+				C4225FB3206DDE0A008532B9 /* HMHealthRecordFormView.m in Sources */,
 				C4E1F5731EE68F2100CBB6C7 /* ReaderContentView.m in Sources */,
 				C4E1F5791EE68F2100CBB6C7 /* ReaderThumbFetch.m in Sources */,
 				C4E1F5781EE68F2100CBB6C7 /* ReaderThumbCache.m in Sources */,
 				C4225F9F206CC7B7008532B9 /* NSDate+WJExtension.m in Sources */,
+				C4225FF3206DE48F008532B9 /* HMWebSocketManager.m in Sources */,
 				C4225F7E206C8E63008532B9 /* HMBaseModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

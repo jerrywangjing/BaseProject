@@ -128,7 +128,6 @@
             return;
         }
     }
-    
 }
 
 - (void)applicationDidBecomeActiveNotification {

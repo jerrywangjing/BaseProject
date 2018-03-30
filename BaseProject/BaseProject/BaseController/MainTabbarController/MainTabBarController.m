@@ -8,6 +8,7 @@
 
 #import "MainTabBarController.h"
 #import "MainNavController.h"
+#import "HomeViewController.h"
 
 @interface MainTabBarController ()
 
@@ -27,7 +28,7 @@
     [super loadView];
     //  init example
 
-    [self setTabBarViewControllers:[UIViewController new] barItemTitle:@"主页" barItemImage:@"icon_home_normal" selectedImage:@"icon_home_highlight"];
+    [self setTabBarViewControllers:[HomeViewController new] barItemTitle:@"主页" barItemImage:@"icon_home_normal" selectedImage:@"icon_home_highlight"];
     
 }
 
