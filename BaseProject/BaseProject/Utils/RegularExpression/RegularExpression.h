@@ -46,8 +46,9 @@
 + (BOOL)isValidateVCCard:(NSString *)string;
 
 
-#pragma mark -
-#pragma mark phone ,emial, check
+
+#pragma mark - phone ,emial, check
+
 /*手机号码验证 MODIFIED BY HELENSONG*/
 +(BOOL) isValidateMobile:(NSString *)mobile;
 /*车牌号验证 MODIFIED BY HELENSONG*/

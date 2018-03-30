@@ -15,7 +15,7 @@
 // 宏定义
 #import "UtilsMacros.h"
 #import "HTTPRequstConst.h"
-#import "GlobeConst.h"
+#import "GlobalConst.h"
 #import "FontColorMacros.h"
 #import "HeaderMacros.h"
 #import "PathMacros.h"
@@ -23,8 +23,14 @@
 // 三方库
 
 #import <YYText.h>
+#import <YYModel.h>
+#import <IQKeyboardManager.h>
+#import <Masonry.h>
+#import <DateTools.h>
+
 // 分类
 
 #import "UIView+WJExtension.h"
+#import "UIImage+Extension.h"
 
 #endif /* PrefixHeader_pch */

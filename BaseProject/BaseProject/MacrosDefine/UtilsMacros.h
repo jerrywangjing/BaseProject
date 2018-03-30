@@ -6,9 +6,6 @@
 //  Copyright © 2017年 jerry. All rights reserved.
 // note : 通用宏定义
 
-#ifndef macros_h
-#define macros_h
-
 //应用级单例对象
 
 #define kApplication        [UIApplication sharedApplication]
@@ -75,16 +72,28 @@
 #define HexRGB(c,a)     [UIColor colorWithRed:((c>>16)&0xFF)/256.0  green:((c>>8)&0xFF)/256.0   blue:((c)&0xFF)/256.0   alpha:a] // 16进制色值
 #define RandomColor     [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1]
 
+// 判断真机还是模拟器
+
+#if TARGET_OS_IPHONE
+// iPhone Device
+#endif
+
+#if TARGET_IPHONE_SIMULATOR
+// iPhone Simulator
+#endif
+
+// 数据保护
+
+#define SafeStr(f) (ValidStr(f) ? f:@"")
+#define SafeArr(f) (ValidArray(f) ? f : @[])
+#define SafeDic(f) (ValidDict(f) ? f :@{})
 
 // 数据验证
 
 #define ValidStr(f) (f!=nil && [f isKindOfClass:[NSString class]] && ![f isEqualToString:@""])
-#define SafeStr(f) (ValidStr(f) ? f:@"")
 #define ValidDict(f) (f!=nil && [f isKindOfClass:[NSDictionary class]])
 #define ValidArray(f) (f!=nil && [f isKindOfClass:[NSArray class]])
 #define ValidNum(f) (f!=nil && [f isKindOfClass:[NSNumber class]])
 #define ValidClass(f,cls) (f!=nil && [f isKindOfClass:[cls class]])
 #define ValidData(f) (f!=nil && [f isKindOfClass:[NSData class]])
 
-
-#endif /* macros_h */

@@ -8,9 +8,6 @@
 
 #import "MainTabBarController.h"
 #import "MainNavController.h"
-#import "ConversationViewController.h"
-#import "ContactsListViewController.h"
-#import "ProfileViewController.h"
 
 @interface MainTabBarController ()
 
@@ -18,10 +15,9 @@
 
 @implementation MainTabBarController
 
--(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
 
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        
     }
     return self;
 }
@@ -29,12 +25,9 @@
 -(void)loadView {
 
     [super loadView];
-    // init rootViews
-    [self setTabBarViewControllers:[ConversationViewController new] barItemTitle:@"会话" barItemImage:@"conversation_nor" selectedImage:@"conversation_select"];
-    
-    [self setTabBarViewControllers:[ContactsListViewController new] barItemTitle:@"联系人" barItemImage:@"contact_nor" selectedImage:@"contact_select"];
-    
-    [self setTabBarViewControllers:[ProfileViewController new] barItemTitle:@"我" barItemImage:@"profile_nor" selectedImage:@"profile_select"];
+    //  init example
+
+    [self setTabBarViewControllers:[UIViewController new] barItemTitle:@"主页" barItemImage:@"icon_home_normal" selectedImage:@"icon_home_highlight"];
     
 }
 
@@ -57,12 +50,11 @@
     viewController.tabBarItem.image = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     viewController.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    NSDictionary * attsDic = @{NSForegroundColorAttributeName : WJRGBColor(120, 128, 144)};
-    NSDictionary * selectedAtts = @{ NSForegroundColorAttributeName : ThemeColor};
+    NSDictionary * attsDic = @{NSForegroundColorAttributeName : RGB(120, 128, 144)};
+    NSDictionary * selectedAtts = @{ NSForegroundColorAttributeName : [UIColor blackColor]};
     [viewController.tabBarItem setTitleTextAttributes:attsDic forState:UIControlStateNormal];
     [viewController.tabBarItem setTitleTextAttributes:selectedAtts forState:UIControlStateSelected];
 
-    
     MainNavController * nav = [[MainNavController alloc] initWithRootViewController:viewController];
     
     [self addChildViewController:nav];

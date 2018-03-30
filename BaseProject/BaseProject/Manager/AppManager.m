@@ -10,4 +10,11 @@
 
 @implementation AppManager
 
++ (void)appStart{
+    
+}
+
++ (void)monitorNetworkStatus{
+    
+}
 @end

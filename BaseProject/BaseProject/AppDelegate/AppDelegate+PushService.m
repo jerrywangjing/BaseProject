@@ -10,4 +10,8 @@
 
 @implementation AppDelegate (PushService)
 
+- (void)initPush{
+    
+}
+
 @end

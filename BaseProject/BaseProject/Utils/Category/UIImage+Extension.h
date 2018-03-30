@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (Extension)
+
 ///图片局部拉伸（防止四角变形）
 + (instancetype)resizeImage:(NSString *)imgName;
 ///创建纯色图片

@@ -6,7 +6,7 @@
 //  Copyright © 2017年 JerryWang. All rights reserved.
 //
 
-#import <MBProgressHUD/MBProgressHUD.h>
+#import <MBProgressHUD.h>
 
 @interface MBProgressHUD (CustomView)
 
@@ -18,8 +18,13 @@
 + (void)hideHUDFromView:(UIView *)view;
 
 + (void)showLabelWithText:(NSString *)text;
++ (void)showLabelWithText:(NSString *)text delay:(NSTimeInterval)delay;
++ (void)showLabelWithText:(NSString *)text delay:(NSTimeInterval)delay completion:(void(^)())completion;
++ (void)showLabelWithText:(NSString *)text completion:(void(^)())completion;
 + (void)showLabelWithText:(NSString *)text toView:(UIView *)view;
++ (void)showLabelWithText:(NSString *)text toView:(UIView *)view completion:(void(^)())completion;
 
++ (void)showProgressHUDWithProgress:(void (^)(CGFloat value))progress;
 + (void)showProgressHUDToView:(UIView *)view progress:(void (^)(CGFloat value))progress;
 
 + (void)showErrorWithText:(NSString *)text;

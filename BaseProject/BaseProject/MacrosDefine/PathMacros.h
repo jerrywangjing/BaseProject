@@ -6,8 +6,8 @@
 //  Copyright © 2017年 jerry. All rights reserved.
 //
 
-#ifndef macros_h
-#define macros_h
+#ifndef PathMacros_h
+#define PathMacros_h
 
 // 沙盒目录
 
@@ -24,4 +24,4 @@
 //#define kPathDownloadedMgzs         [kPathMagazine stringByAppendingPathComponent:@"DownloadedMgz.plist"]
 
 
-#endif /* macros_h */
+#endif /* PathMacros_h */

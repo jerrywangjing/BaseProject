@@ -2,27 +2,43 @@
 # platform :ios, '9.0'
 
 target 'BaseProject' do
+    
+    
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
   # Pods for BaseProject
 
-#pod 'Masonry'
-#pod 'AFNetworking'
+
+pod 'AFNetworking'          # 网络库
+pod 'SDWebImage'            # 图片加载库
+pod 'Masonry'               # 约束布局库
+pod 'DateTools'             # 日期工具库
+
+pod 'DZNEmptyDataSet'       # scrollView 空数据提示控件
+pod 'MBProgressHUD'         # 加载等待控件
+
+pod 'YYText'                # YYKit text组件
+pod 'YYModel'               # YYKit json转模型库
+#pod 'YYCache'               # 缓存框架
+
+pod 'IQKeyboardManager'     # 键盘弹出管理控件
+
+#pod 'IDMPhotoBrowser'               # 图片浏览器（可触摸关闭）
+#pod 'WebViewJavascriptBridge'       # js交互框架
+#pod 'SAMKeychain'                   # 钥匙串访问工具
+#pod 'CocoaAsyncSocket'              # socket
+#pod 'SocketRocket'                  # websocket
+
 #pod 'MJRefresh'
 #pod 'FMDB'
 #pod 'SAMKeychain'
-#pod 'IQKeyboardManager'
 #pod 'WZLBadge'  # 添加小红点工具
-pod 'DateTools'
-#pod 'DACircularProgress' # 一个圆圈状的进度显示view
-#pod 'YYText'
-#pod 'ReactiveCocoa', '2.3.1'
+
+#pod 'DACircularProgress'   # 一个圆圈状的进度显示view
+#pod 'ReactiveCocoa', '2.3.1'   # RAC 响应式编程库
 #pod 'TZImagePickerController'  # 照片选择控件
 
-pod 'MBProgressHUD'
-pod 'YYText'
-pod 'SDWebImage'
 
   target 'BaseProjectTests' do
     inherit! :search_paths
@@ -33,5 +49,6 @@ pod 'SDWebImage'
     inherit! :search_paths
     # Pods for testing
   end
+
 
 end

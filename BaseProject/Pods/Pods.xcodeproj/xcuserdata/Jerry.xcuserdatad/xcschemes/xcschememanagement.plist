@@ -4,12 +4,32 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>DZNEmptyDataSet.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DateTools.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>IQKeyboardManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -34,6 +54,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>YYModel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YYText.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -41,42 +66,6 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>0F6DB57303DDCA670E049D1A09F119F0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>31FF44B5E2FF8CF00090950A8B67AFF6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5A0150752A64ABC75326A42C18E7429E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>74F7372E8E0247A84B0C3FC851A3A72F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BB5839E5E84979340624F63C1E514EDB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D058B89EB3B3DF45457A2DCD3971AFFE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D3A807553BB45FCD768C7D039D1FCDC6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

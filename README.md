@@ -1,2 +1,2 @@
 # BaseProject
-A baseProject for Xcode 
+A baseProject for iOS,include small modules.

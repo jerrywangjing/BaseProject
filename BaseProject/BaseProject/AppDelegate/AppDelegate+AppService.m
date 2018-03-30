@@ -8,15 +8,18 @@
 
 #import "AppDelegate+AppService.h"
 #import <MBProgressHUD.h>
+#import "MainTabBarController.h"
 
 @implementation AppDelegate (AppService)
+
 #pragma mark - ——————— 初始化window ————————
 
--(void)initWindow{
+- (void)initWindow{
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    self.window.rootViewController = nil;
+    self.window.rootViewController = [[MainTabBarController alloc] init];
     [self.window makeKeyAndVisible];
     
     [[UIButton appearance] setExclusiveTouch:YES];
@@ -26,6 +29,10 @@
 
 + (AppDelegate *)sharedAppDelegate{
     return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
++ (void)configThirdService{
+    
 }
 
 

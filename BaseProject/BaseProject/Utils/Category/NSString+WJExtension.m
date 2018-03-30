@@ -106,4 +106,13 @@
                                  documentAttributes:nil
                                               error:nil];
 }
+
+- (BOOL)isEmpty{
+    
+    if (self.length == 0 || self == nil) {
+        return YES;
+    }
+    return NO;
+}
+
 @end
