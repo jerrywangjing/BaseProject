@@ -10,6 +10,8 @@
 		4E6BF89396A8FDAC73FBE61F /* libPods-BaseProjectUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6503479302CAE14867671D7 /* libPods-BaseProjectUITests.a */; };
 		621F00176453F03A93CF20FE /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4881045C41F76123E32946D0 /* libPods-BaseProject.a */; };
 		6EA1A27B65DB750EED03E10E /* libPods-BaseProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4E1A25930E2ACD38E866D7 /* libPods-BaseProjectTests.a */; };
+		86C9847E20C14FA4003F55D5 /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C9847D20C14FA4003F55D5 /* RootNavigationController.m */; };
+		86C9848320C1506D003F55D5 /* XYTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C9848120C1506D003F55D5 /* XYTransition.m */; };
 		86D88CF020C11A25007CC6E7 /* BaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D88CEF20C11A25007CC6E7 /* BaseCellModel.m */; };
 		86D88D1720C12381007CC6E7 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D88D1620C12381007CC6E7 /* TestViewController.m */; };
 		86D88D1A20C13D28007CC6E7 /* UITabBar+CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D88D1920C13D28007CC6E7 /* UITabBar+CustomBadge.m */; };
@@ -165,6 +167,11 @@
 		4881045C41F76123E32946D0 /* libPods-BaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC331C2F1DE185F1D4E7A22 /* Pods-BaseProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProjectTests/Pods-BaseProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		815BC97FCD7C2F84BC59DFD8 /* Pods-BaseProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProjectUITests/Pods-BaseProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		86C9847C20C14FA4003F55D5 /* RootNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootNavigationController.h; sourceTree = "<group>"; };
+		86C9847D20C14FA4003F55D5 /* RootNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
+		86C9848020C1506D003F55D5 /* XYTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTransition.h; sourceTree = "<group>"; };
+		86C9848120C1506D003F55D5 /* XYTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTransition.m; sourceTree = "<group>"; };
+		86C9848220C1506D003F55D5 /* XYTransitionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTransitionProtocol.h; sourceTree = "<group>"; };
 		86D88CEE20C11A25007CC6E7 /* BaseCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCellModel.h; sourceTree = "<group>"; };
 		86D88CEF20C11A25007CC6E7 /* BaseCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseCellModel.m; sourceTree = "<group>"; };
 		86D88D1520C12381007CC6E7 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
@@ -453,6 +460,16 @@
 				E6503479302CAE14867671D7 /* libPods-BaseProjectUITests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		86C9847F20C1506D003F55D5 /* XYTransition */ = {
+			isa = PBXGroup;
+			children = (
+				86C9848020C1506D003F55D5 /* XYTransition.h */,
+				86C9848120C1506D003F55D5 /* XYTransition.m */,
+				86C9848220C1506D003F55D5 /* XYTransitionProtocol.h */,
+			);
+			path = XYTransition;
 			sourceTree = "<group>";
 		};
 		86D88CED20C10DD4007CC6E7 /* Base */ = {
@@ -843,6 +860,7 @@
 		C44685B71EDBBD76000A57F8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				86C9847F20C1506D003F55D5 /* XYTransition */,
 				C4225FD2206DE016008532B9 /* PinYinSearchLib */,
 				C4225F99206CC598008532B9 /* RuntimeKit */,
 				C4E1F5021EE6492500CBB6C7 /* RegularExpression */,
@@ -891,6 +909,8 @@
 			children = (
 				C44685EB1EDBD1D7000A57F8 /* MainNavController.h */,
 				C44685EC1EDBD1D7000A57F8 /* MainNavController.m */,
+				86C9847C20C14FA4003F55D5 /* RootNavigationController.h */,
+				86C9847D20C14FA4003F55D5 /* RootNavigationController.m */,
 			);
 			path = RootNavigationController;
 			sourceTree = "<group>";
@@ -1355,6 +1375,7 @@
 				86D88D1A20C13D28007CC6E7 /* UITabBar+CustomBadge.m in Sources */,
 				C4E1F5721EE68F2100CBB6C7 /* ReaderContentTile.m in Sources */,
 				C44686391EDBD970000A57F8 /* UIView+WJExtension.m in Sources */,
+				86C9847E20C14FA4003F55D5 /* RootNavigationController.m in Sources */,
 				C4225F7D206C8E63008532B9 /* HMBaseViewModel.m in Sources */,
 				C4E1F5701EE68F2100CBB6C7 /* ReaderConstants.m in Sources */,
 				C4E1F57C1EE68F2100CBB6C7 /* ReaderThumbRequest.m in Sources */,
@@ -1374,6 +1395,7 @@
 				C4225FE4206DE016008532B9 /* ChineseInclude.m in Sources */,
 				C4225FE6206DE016008532B9 /* HanyuPinyinOutputFormat.m in Sources */,
 				86D88CF020C11A25007CC6E7 /* BaseCellModel.m in Sources */,
+				86C9848320C1506D003F55D5 /* XYTransition.m in Sources */,
 				C4225F70206C8BDB008532B9 /* LDRefreshFooterView.m in Sources */,
 				C446866E1EDD0B96000A57F8 /* RootViewController.m in Sources */,
 				C4E1F5711EE68F2100CBB6C7 /* ReaderContentPage.m in Sources */,

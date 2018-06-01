@@ -10,7 +10,6 @@
 
 #define WJRGBColor(R,G,B)  [UIColor colorWithRed:(R)/255.0f green:(G)/255.0f blue:(B)/255.0f alpha:1.0f]
 
-
 @interface MainNavController ()
 
 @end
@@ -44,6 +43,7 @@
         viewController.hidesBottomBarWhenPushed = YES;
     }
     [super pushViewController:viewController animated:animated];
+
 }
 
 // 设置状态栏样式
