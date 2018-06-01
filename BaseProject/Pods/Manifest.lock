@@ -42,6 +42,21 @@ DEPENDENCIES:
   - YYModel
   - YYText
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - CocoaAsyncSocket
+    - DateTools
+    - DZNEmptyDataSet
+    - IQKeyboardManager
+    - Masonry
+    - MBProgressHUD
+    - SDWebImage
+    - SocketRocket
+    - WebViewJavascriptBridge
+    - YYModel
+    - YYText
+
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   CocoaAsyncSocket: 3541e024f48c54b251638ef72d51dd42808de932
@@ -56,6 +71,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 4d6bd9ca07eac29b93db2915ea19b8376ab3a769
+PODFILE CHECKSUM: 89b799f9794a6280bc9538ceefa641acd3242135
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.5.3
