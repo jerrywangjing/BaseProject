@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^DatePickerCallback)(NSDate *date);
-typedef void(^CancelCallback)();
+typedef void(^CancelCallback)(void);
 
 
 @interface WJSysDatePickerView : UIView

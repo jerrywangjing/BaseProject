@@ -6,8 +6,8 @@
 //  Copyright © 2018年 JerryWang. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "RootViewController.h"
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController : RootViewController
 
 @end

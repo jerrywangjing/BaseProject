@@ -6,7 +6,7 @@
 //  Copyright © 2018年 华美医信. All rights reserved.
 //
 
-#import "HMBaseView.h"
+#import <UIKit/UIKit.h>
 
 @class HMSearchBar;
 
@@ -18,7 +18,7 @@
 
 @end
 
-@interface HMSearchBar : HMBaseView
+@interface HMSearchBar : UIView
 
 @property (nonatomic,copy) NSString *searchText;
 @property (nonatomic,assign,readonly) BOOL isSearching;

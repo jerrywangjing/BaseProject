@@ -8,23 +8,25 @@
 
 #import "HomeViewController.h"
 #import "WJAlertSheetView.h"
-#import "HMBaseWebViewController.h"
+#import "BaseWebViewController.h"
 #import "WJSysDatePickerView.h"
 #import "HMPopView.h"
+#import "TestViewController.h"
 
 typedef NS_ENUM(NSUInteger, ShowViewType) {
     ShowViewTypeAlertSheetView,
     ShowViewTypeAlertSheetMultiView,
     ShowViewTypePopView,
     ShowViewTypeWebview,
-    ShowViewTypeDatePickerView
+    ShowViewTypeDatePickerView,
+    ShowViewTypeTest
 };
 
 
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic,weak) UITableView *tableView;
 @property (nonatomic,strong) NSArray *dataSource;
+
 @end
 
 @implementation HomeViewController
@@ -40,17 +42,16 @@ typedef NS_ENUM(NSUInteger, ShowViewType) {
 
 - (void)setupSubviews{
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
-    _tableView = tableView;
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    _tableView.tableFooterView = [UIView new];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.tableFooterView = [UIView new];
     
-    [self.view addSubview:_tableView];
+    [self.view addSubview:self.tableView];
 }
 
 - (void)loadData{
-    _dataSource = @[@"AlertSheetView",@"AlertMultiSheetView",@"PopView",@"WebView",@"DataPickerView"];
+    _dataSource = @[@"AlertSheetView",@"AlertMultiSheetView",@"PopView",@"WebView",@"DataPickerView",@"TestBtn"];
 }
 
 #pragma mark - tableView delegate
@@ -107,7 +108,7 @@ typedef NS_ENUM(NSUInteger, ShowViewType) {
             break;
         case ShowViewTypeWebview:{
          
-            HMBaseWebViewController *webview  = [[HMBaseWebViewController alloc] initWithUrl:[NSURL URLWithString:@"https://www.baidu.com"]];
+            BaseWebViewController *webview  = [[BaseWebViewController alloc] initWithUrl:[NSURL URLWithString:@"https://www.baidu.com"]];
             
             [self.navigationController pushViewController:webview animated:YES];
         }
@@ -115,6 +116,9 @@ typedef NS_ENUM(NSUInteger, ShowViewType) {
         case ShowViewTypeDatePickerView:
             [WJSysDatePickerView showSystemDatePickerViewWithMode:UIDatePickerModeDate confirmCallBack:nil cancelCallback:nil];
             break;
+        case ShowViewTypeTest:
+//            [self.navigationController pushViewController:[TestViewController new] animated:YES];
+//            self.statusBarStyle = !self.statusBarStyle;
         default:
             break;
     }

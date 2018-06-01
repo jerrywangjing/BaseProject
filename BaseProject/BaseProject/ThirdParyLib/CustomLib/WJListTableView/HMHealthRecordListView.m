@@ -16,8 +16,8 @@
 
 #define TitleLabelH 30 // 标题视图高度
 
-static const CGFloat TopTabbarH = 30;
-static const CGFloat SearchBarH = 44;
+static const CGFloat HRTopTabbarH = 30;
+static const CGFloat HRSearchBarH = 44;
 
 @interface HMHealthRecordListView ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,PYSearchViewControllerDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,HMSearchBarDelegate>
 
@@ -148,7 +148,7 @@ static const CGFloat SearchBarH = 44;
     
     // top tool bar
     
-    _topTabbar = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_searchBar.frame), self.width, TopTabbarH)];
+    _topTabbar = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_searchBar.frame), self.width, HRTopTabbarH)];
     _topTabbar.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
     // tabbarItems
@@ -178,18 +178,18 @@ static const CGFloat SearchBarH = 44;
     
     // separate line 分割线
     
-    CGFloat lineH = TopTabbarH * 0.5;
+    CGFloat lineH = HRTopTabbarH * 0.5;
     
     for (NSInteger i = 0; i<itemsTitle.count-1; i++) {
         UIView *line = [[UIView alloc] init];
         line.backgroundColor = [UIColor lightGrayColor];
-        line.frame = CGRectMake((i+1)*itemW, (TopTabbarH-lineH)/2, 0.5, lineH);
+        line.frame = CGRectMake((i+1)*itemW, (HRTopTabbarH-lineH)/2, 0.5, lineH);
         [_topTabbar addSubview:line];
     }
     
     // bottom indicator view
     
-    UIView *indicator = [[UIView alloc] initWithFrame:CGRectMake(0, TopTabbarH-2, itemW*0.7, 2)];
+    UIView *indicator = [[UIView alloc] initWithFrame:CGRectMake(0, HRTopTabbarH-2, itemW*0.7, 2)];
     _indicator = indicator;
     indicator.centerX = itemW/2;
     indicator.layer.cornerRadius = 1;

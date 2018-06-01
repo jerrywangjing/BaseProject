@@ -19,6 +19,7 @@ pod 'DateTools'             # 日期工具库
 
 pod 'DZNEmptyDataSet'       # scrollView 空数据提示控件
 pod 'MBProgressHUD'         # 加载等待控件
+pod 'MJRefresh'
 
 pod 'YYText'                # YYKit text组件
 pod 'YYModel'               # YYKit json转模型库

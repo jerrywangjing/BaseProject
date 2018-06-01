@@ -19,7 +19,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    self.window.rootViewController = [[MainTabBarController alloc] init];
+    MainTabBarController *tabbarVc = [[MainTabBarController alloc] init];
+    self.window.rootViewController = tabbarVc;
+    self.mainTabBar = tabbarVc;
     [self.window makeKeyAndVisible];
     
     [[UIButton appearance] setExclusiveTouch:YES];

@@ -23,8 +23,22 @@
 #define WIDTH_RATE (kScreenWidth/375)   // 宽高系数（以4.7英寸为基准）
 #define HEIGHT_RATE (kScreenHeight/667)
 
-#define NavBarH         64
-#define TabBarH         44
+// iPhoneX 适配相关代码
+
+#define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
+// 状态栏高度
+#define STATUS_BAR_HEIGHT (iPhoneX ? 44.f : 20.f)
+// 导航栏高度
+#define NavBarH (iPhoneX ? 88.f : 64.f)
+// tabBar高度
+#define TabBarH (iPhoneX ? (49.f+34.f) : 49.f)
+// home indicator 高度
+#define HOME_INDICATOR_HEIGHT (iPhoneX ? 34.f : 0.f)
+
+#define iPhoneXTopMargin 24         // 相对其他机型顶部高出来的距离
+#define iPhoneXBottomMargin  34     // 相对其他机型底部高出来的距离
+#define SearchBarH 56
 
 // 机型、系统版本判断
 
