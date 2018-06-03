@@ -6,18 +6,20 @@
 //  Copyright © 2017年 JerryWang. All rights reserved.
 //
 
-/**
-    包含应用层的相关服务
- */
+
 
 #import <Foundation/Foundation.h>
 
+/**
+ 包含应用层的相关服务
+ */
+
 @interface AppManager : NSObject
 
-/// 启动app
+#pragma mark ————— APP启动接口 —————
 +(void)appStart;
 
-/// 开启网络监控
-+ (void)monitorNetworkStatus;
+#pragma mark ————— FPS 监测 —————
++(void)showFPS;
 
 @end

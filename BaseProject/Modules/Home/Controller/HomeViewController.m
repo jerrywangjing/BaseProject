@@ -117,8 +117,9 @@ typedef NS_ENUM(NSUInteger, ShowViewType) {
             [WJSysDatePickerView showSystemDatePickerViewWithMode:UIDatePickerModeDate confirmCallBack:nil cancelCallback:nil];
             break;
         case ShowViewTypeTest:
-//            [self.navigationController pushViewController:[TestViewController new] animated:YES];
-//            self.statusBarStyle = !self.statusBarStyle;
+            [self.navigationController pushViewController:[TestViewController new] animated:YES];
+            self.statusBarStyle = !self.statusBarStyle;
+            
         default:
             break;
     }

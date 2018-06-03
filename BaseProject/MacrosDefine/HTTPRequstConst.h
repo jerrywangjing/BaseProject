@@ -15,13 +15,13 @@
 #define ProductSever 0
 
 /** 服务器域名 */
-UIKIT_EXTERN NSString * const API_Server;
+UIKIT_EXTERN NSString * const URL_base;
 
 #pragma mark - 详细接口地址
 
 // 登录注册
 
 /** 登录 */
-UIKIT_EXTERN NSString * const API_Login;
+UIKIT_EXTERN NSString * const URL_login;
 /** 注册 */
-UIKIT_EXTERN NSString * const API_Regist;
+UIKIT_EXTERN NSString * const URL_regist;

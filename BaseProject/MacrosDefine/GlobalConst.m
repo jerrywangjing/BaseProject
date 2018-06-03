@@ -9,7 +9,6 @@
 #import "GlobalConst.h"
 
 
-
 NSString * const kAccount = @"account";
 
 NSNotificationName const kOpenLeftSlideViewNotification = @"notificationName";

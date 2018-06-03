@@ -8,213 +8,170 @@
 
 #import "MBProgressHUD+WJ.h"
 
-static const NSInteger tipHideTime = 2;
+const NSInteger hideTime = 2;
 
-@implementation MBProgressHUD (WJ)
+@implementation MBProgressHUD (XY)
 
-+ (MBProgressHUD*)createMBProgressHUDviewWithMessage:(NSString*)message isWindiw:(BOOL)isWindow mode:(MBProgressHUDMode)mode;
++ (MBProgressHUD*)createMBProgressHUDviewWithMessage:(NSString*)message isWindiw:(BOOL)isWindow
 {
-    UIView  *view = isWindow? [UIApplication sharedApplication].keyWindow :[self getCurrentUIVC].view;
+    UIView  *view = isWindow? (UIView*)[UIApplication sharedApplication].delegate.window:[kAppDelegate getCurrentUIVC].view;
     MBProgressHUD * hud = [MBProgressHUD HUDForView:view];
     if (!hud) {
         hud =[MBProgressHUD showHUDAddedTo:view animated:YES];
     }else{
         [hud showAnimated:YES];
     }
-    hud.mode = mode;
-    hud.label.text = message;
-    hud.label.font = [UIFont systemFontOfSize:15];
-    hud.label.textColor = [UIColor whiteColor];
+    hud.minSize = CGSizeMake(100, 100);
+    hud.label.text=message?message:@"加载中...";
+    hud.label.font=[UIFont systemFontOfSize:15];
+    hud.label.textColor= [UIColor whiteColor];
+    hud.label.numberOfLines = 0;
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
-    hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.7];
+    hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.9];
     hud.removeFromSuperViewOnHide = YES;
+    [hud setContentColor:[UIColor whiteColor]];
     
     return hud;
 }
+
 #pragma mark-------------------- show Tip----------------------------
 
-+ (void)showTipHUD:(NSString *)tip{
-
-    [self showTipMessage:tip isWindow:NO timer: tipHideTime];
++ (void)showTipMessageInWindow:(NSString*)message
+{
+    [self showTipMessage:message isWindow:true timer:hideTime];
 }
-
-+ (void)showTipHUDOnWindow:(NSString *)tip{
-
-    [self showTipMessage:tip isWindow:YES timer:tipHideTime];
++ (void)showTipMessageInView:(NSString*)message
+{
+    [self showTipMessage:message isWindow:false timer:hideTime];
 }
-
++ (void)showTipMessageInWindow:(NSString*)message timer:(float)aTimer
+{
+    [self showTipMessage:message isWindow:true timer:aTimer];
+}
++ (void)showTipMessageInView:(NSString*)message timer:(float)aTimer
+{
+    [self showTipMessage:message isWindow:false timer:aTimer];
+}
 + (void)showTipMessage:(NSString*)message isWindow:(BOOL)isWindow timer:(int)aTimer
 {
-    MBProgressHUD *hud = [self createMBProgressHUDviewWithMessage:message isWindiw:isWindow mode:MBProgressHUDModeText];
-    
-    [hud hideAnimated:YES afterDelay:aTimer];
+    MBProgressHUD *hud = [self createMBProgressHUDviewWithMessage:message isWindiw:isWindow];
+    hud.mode = MBProgressHUDModeText;
+    [hud hideAnimated:YES afterDelay:hideTime];
 }
-
 #pragma mark-------------------- show Activity----------------------------
 
-+ (void)showActivityHUD{
-
-    [self showActivityHUD:nil];
++ (void)showActivityMessageInWindow:(NSString*)message
+{
+    [self showActivityMessage:message isWindow:true timer:0];
 }
-
-+ (void)showActivityHUD:(NSString *)message{
-
-    [self showActivityMessage:message isWindow:NO timer:0];
++ (void)showActivityMessageInView:(NSString*)message
+{
+    [self showActivityMessage:message isWindow:false timer:0];
 }
-+ (void)showActivityHUDOnWindow:(NSString *)message{
-
-    [self showActivityMessage:message isWindow:YES timer:0];
++ (void)showActivityMessageInWindow:(NSString*)message timer:(float)aTimer
+{
+    [self showActivityMessage:message isWindow:true timer:aTimer];
 }
-
++ (void)showActivityMessageInView:(NSString*)message timer:(float)aTimer
+{
+    [self showActivityMessage:message isWindow:false timer:aTimer];
+}
 + (void)showActivityMessage:(NSString*)message isWindow:(BOOL)isWindow timer:(int)aTimer
 {
-    [self createMBProgressHUDviewWithMessage:message isWindiw:isWindow mode:MBProgressHUDModeIndeterminate];
+    MBProgressHUD *hud  =  [self createMBProgressHUDviewWithMessage:message isWindiw:isWindow];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    if (aTimer>0) {
+        [hud hideAnimated:YES afterDelay:aTimer];
+    }
 }
-
-
 #pragma mark-------------------- show Image----------------------------
 
-+ (void)showSuccessHUD:(NSString *)Message
++ (void)showSuccessMessage:(NSString *)Message
 {
-    [self showCustomHUD:@"MBHUD_Success" message:Message];
+    [self showCustomIconInWindow:@"MBHUD_Success" message:Message];
 }
-+ (void)showErrorHUD:(NSString *)Message
++ (void)showErrorMessage:(NSString *)Message
 {
-    [self showCustomHUD:@"MBHUD_Error" message:Message];
+    [self showCustomIconInWindow:@"MBHUD_Error" message:Message];
 }
-+ (void)showInfoHUD:(NSString *)Message
++ (void)showInfoMessage:(NSString *)Message
 {
-    [self showCustomHUD:@"MBHUD_Info" message:Message];
+    [self showCustomIconInWindow:@"MBHUD_Info" message:Message];
 }
-+ (void)showWarnHUD:(NSString *)Message
++ (void)showWarnMessage:(NSString *)Message
 {
-    [self showCustomHUD:@"MBHUD_Warn" message:Message];
+    [self showCustomIconInWindow:@"MBHUD_Warn" message:Message];
 }
-
-#pragma mark --------------------- show custom view----------------------------
-
-
-+ (void)showCustomHUD:(NSString *)imageName message:(NSString *)message{
-
-    [self showCustomIcon:imageName message:message isWindow:NO];
++ (void)showCustomIconInWindow:(NSString *)iconName message:(NSString *)message
+{
+    [self showCustomIcon:iconName message:message isWindow:true];
+    
 }
-
-+ (void)showCustomHUDOnWindow:(NSString *)imageName message:(NSString *)message{
-
-    [self showCustomIcon:imageName message:message isWindow:YES];
++ (void)showCustomIconInView:(NSString *)iconName message:(NSString *)message
+{
+    [self showCustomIcon:iconName message:message isWindow:false];
 }
-
 + (void)showCustomIcon:(NSString *)iconName message:(NSString *)message isWindow:(BOOL)isWindow
 {
-    UIView  *view = isWindow? [UIApplication sharedApplication].keyWindow :[self getCurrentUIVC].view;
-    MBProgressHUD * hud = [MBProgressHUD HUDForView:view];
-    if (!hud) {
-        hud =[MBProgressHUD showHUDAddedTo:view animated:YES];
-    }else{
-        [hud showAnimated:YES];
-    }
-    hud.mode = MBProgressHUDModeCustomView;
+    MBProgressHUD *hud  =  [self createMBProgressHUDviewWithMessage:message isWindiw:isWindow];
     hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:iconName]];
-    hud.label.text = message;
-    hud.label.font = [UIFont systemFontOfSize:15];
-    hud.label.textColor = [UIColor whiteColor];
-    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
-    hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.7];
-    hud.removeFromSuperViewOnHide = YES;
-    
-    [hud hideAnimated:YES afterDelay:tipHideTime];
+    hud.mode = MBProgressHUDModeCustomView;
+    [hud hideAnimated:YES afterDelay:hideTime];
 }
-
-#pragma mark - hide view
-
 + (void)hideHUD
 {
     UIView  *winView =(UIView*)[UIApplication sharedApplication].delegate.window;
-    
-    [self hideHUD];
-    [self hideHUDForView:winView animated:YES];
-    [self hideHUDForView:[self getCurrentUIVC].view animated:YES];
+    [self hideAllHUDsForView:winView animated:YES];
+    [self hideAllHUDsForView:[kAppDelegate getCurrentUIVC].view animated:YES];
 }
 
 #pragma mark ————— 顶部tip —————
-
-//+ (void)showTopTipMessage:(NSString *)msg {
-//    CGFloat padding = 10;
-//    
-//    YYLabel *label = [YYLabel new];
-//    label.text = msg;
-//    label.font = [UIFont systemFontOfSize:16];
-//    label.textAlignment = NSTextAlignmentCenter;
-//    label.textColor = [UIColor whiteColor];
-//    label.backgroundColor = [UIColor colorWithRed:0.033 green:0.685 blue:0.978 alpha:0.730];
-//    label.width = SCREEN_WIDTH;
-//    label.textContainerInset = UIEdgeInsetsMake(padding, padding, padding, padding);
-//    label.height = [msg heightForFont:label.font width:label.width] + 2 * padding;
-//    
-//    label.bottom = (IOS7_LATER ? 64 : 0);
-//    [[kAppDelegate getCurrentUIVC].view addSubview:label];
-//    [UIView animateWithDuration:0.3 animations:^{
-//        label.top = (IOS7_LATER ? 64 : 0);
-//    } completion:^(BOOL finished) {
-//        [UIView animateWithDuration:0.2 delay:2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-//            label.bottom = (IOS7_LATER ? 64 : 0);
-//        } completion:^(BOOL finished) {
-//            [label removeFromSuperview];
-//        }];
-//    }];
-//}
-
-#pragma mark - private
-
-+ (UIViewController *)getCurrentVC{
++ (void)showTopTipMessage:(NSString *)msg {
+    [self showTopTipMessage:msg isWindow:NO];
+}
++ (void)showTopTipMessage:(NSString *)msg isWindow:(BOOL) isWindow{
+    CGFloat padding = 10;
     
-    UIViewController *result = nil;
+    YYLabel *label = [YYLabel new];
+    label.text = msg;
+    label.font = [UIFont systemFontOfSize:16];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
+    label.backgroundColor = [UIColor colorWithRed:0.033 green:0.685 blue:0.978 alpha:0.8];
+    label.width = SCREEN_WIDTH;
+    label.textContainerInset = UIEdgeInsetsMake(padding+padding, padding, 0, padding);
     
-    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
-    if (window.windowLevel != UIWindowLevelNormal)
-    {
-        NSArray *windows = [[UIApplication sharedApplication] windows];
-        for(UIWindow * tmpWin in windows)
-        {
-            if (tmpWin.windowLevel == UIWindowLevelNormal)
-            {
-                window = tmpWin;
-                break;
-            }
-        }
+    if (isWindow) {
+        label.height = NavBarH;
+        label.bottom = 0;
+        [kAppWindow addSubview:label];
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            label.y = 0;
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.2 delay:2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                label.bottom = 0;
+            } completion:^(BOOL finished) {
+                [label removeFromSuperview];
+            }];
+        }];
+        
+    }else{
+        label.height = [msg sizeWithMaxSize:CGSizeMake(SCREEN_WIDTH, CGFLOAT_MAX) fontSize:label.font.pointSize].height + 2 *padding;
+        label.bottom = (IOS7_LATER ? 64 : 0);
+        [[kAppDelegate getCurrentUIVC].view addSubview:label];
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            label.y = (IOS7_LATER ? 64 : 0);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.2 delay:2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                label.bottom = (IOS7_LATER ? 64 : 0);
+            } completion:^(BOOL finished) {
+                [label removeFromSuperview];
+            }];
+        }];
+        
     }
     
-    UIView *frontView = [[window subviews] objectAtIndex:0];
-    id nextResponder = [frontView nextResponder];
-    
-    if ([nextResponder isKindOfClass:[UIViewController class]])
-        result = nextResponder;
-    else
-        result = window.rootViewController;
-    
-    return result;
 }
-
-+ (UIViewController *)getCurrentUIVC
-{
-    UIViewController  *superVC = [self getCurrentVC];
-    
-    if ([superVC isKindOfClass:[UITabBarController class]]) {
-        
-        UIViewController  *tabSelectVC = ((UITabBarController*)superVC).selectedViewController;
-        
-        if ([tabSelectVC isKindOfClass:[UINavigationController class]]) {
-            
-            return ((UINavigationController*)tabSelectVC).viewControllers.lastObject;
-        }
-        return tabSelectVC;
-    }else
-        if ([superVC isKindOfClass:[UINavigationController class]]) {
-            
-            return ((UINavigationController*)superVC).viewControllers.lastObject;
-        }
-    return superVC;
-}
-
-
 @end

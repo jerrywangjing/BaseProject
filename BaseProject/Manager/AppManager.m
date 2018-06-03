@@ -7,14 +7,22 @@
 //
 
 #import "AppManager.h"
+#import "JPFPSStatus.h"
 
 @implementation AppManager
 
-+ (void)appStart{
-    
++(void)appStart{
+    //加载广告
+//    AdPageView *adView = [[AdPageView alloc] initWithFrame:SCREEN_BOUNDS withTapBlock:^{
+//        RootNavigationController *loginNavi =[[RootNavigationController alloc] initWithRootViewController:[[RootWebViewController alloc] initWithUrl:@"http://www.hao123.com"]];
+//        [kRootViewController presentViewController:loginNavi animated:YES completion:nil];
+//    }];
+//    adView = adView;
 }
 
-+ (void)monitorNetworkStatus{
-    
+#pragma mark ————— FPS 监测 —————
++(void)showFPS{
+    [[JPFPSStatus sharedInstance] open];
 }
+
 @end

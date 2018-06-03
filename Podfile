@@ -13,6 +13,7 @@ target 'BaseProject' do
 #### 常用的三方库
 
 pod 'AFNetworking'          # 网络库
+pod 'PPNetworkHelper'       # 网络辅助库(带缓存，已安装:YYCache库)
 pod 'SDWebImage'            # 图片加载库
 pod 'Masonry'               # 约束布局库
 pod 'DateTools'             # 日期工具库
@@ -23,7 +24,6 @@ pod 'MJRefresh'
 
 pod 'YYText'                # YYKit text组件
 pod 'YYModel'               # YYKit json转模型库
-#pod 'YYCache'               # 缓存框架
 
 pod 'IQKeyboardManager'     # 键盘弹出管理控件
 #pod 'IDMPhotoBrowser'               # 图片浏览器（可触摸关闭）

@@ -24,11 +24,20 @@
     //初始化window
     [self initWindow];
     
-    //广告页
-    [AppManager appStart];
+    //初始化app服务
+    [self initService];
+    
+    //初始化网络请求配置
+    [self NetWorkConfig];
+    
+    //初始化用户系统
+    [self initUserManager];
     
     //网络监听
-    [AppManager monitorNetworkStatus];
+    [self monitorNetworkStatus];
+    
+    //广告页
+    [AppManager appStart];
     
     return YES;
 }

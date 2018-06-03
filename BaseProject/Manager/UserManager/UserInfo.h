@@ -6,9 +6,9 @@
 //  Copyright © 2017年 JerryWang. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "BaseModel.h"
 
-@interface UserInfo : NSObject
+@interface UserInfo : BaseModel
 
 @property (nonatomic,strong) NSString * userId;
 

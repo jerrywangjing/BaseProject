@@ -87,7 +87,8 @@
                                     -(nowViewPoint.y)*_animationScale + toViewPoint.y,
                                     fromVC.view.frame.size.width,
                                     fromVC.view.frame.size.height);
-        kAppDelegate.mainTabBar.tabBar.alpha = 0;
+        [kAppDelegate mainTabBar].tabBar.alpha = 0;
+        
     } completion:^(BOOL finished) {
         if (finished) {
             //没有这句过滤动画就不会结束

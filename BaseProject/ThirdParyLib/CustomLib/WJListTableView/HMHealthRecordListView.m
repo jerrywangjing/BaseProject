@@ -12,7 +12,7 @@
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "LDRefresh.h"
 #import "HMSearchBar.h"
-#import "MBProgressHUD+CustomView.h"
+#import "MBProgressHUD+WJ.h"
 
 #define TitleLabelH 30 // 标题视图高度
 
@@ -647,7 +647,7 @@ static const CGFloat HRSearchBarH = 44;
         
         [self.tableView reloadData];
     }else{
-        [MBProgressHUD showLabelWithText:@"搜索失败"];
+        [MBProgressHUD showTipMessageInWindow:@"搜索失败"];
     }
 }
 
