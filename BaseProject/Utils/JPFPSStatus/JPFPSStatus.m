@@ -56,7 +56,7 @@
         [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
         
         // fpsLabel
-        fpsLabel = [[UILabel alloc] initWithFrame:CGRectMake(([[UIScreen mainScreen] bounds].size.width-50)/2+45, 0, 50, 20)];
+        fpsLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 5, 50, 20)];
         fpsLabel.font=[UIFont boldSystemFontOfSize:12];
         fpsLabel.textColor=WJRGBAColor(69, 188, 61,1);
         fpsLabel.backgroundColor=[UIColor colorWithWhite:0.8 alpha:0.5];

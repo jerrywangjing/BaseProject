@@ -7,11 +7,12 @@
 //
 
 #import "MainTabBarController.h"
-#import "MainNavController.h"
-#import "HomeViewController.h"
 #import "UITabBar+CustomBadge.h"
+#import "RootNavigationController.h"
+#import "ProfileViewController.h"
+#import "HomeViewController.h"
 
-@interface MainTabBarController ()
+@interface MainTabBarController ()<UITabBarControllerDelegate>
 
 @end
 
@@ -19,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.delegate = self;
     
     // setup tabbar
     [self setupTabbar];
@@ -39,17 +42,24 @@
     [self.tabBar setBackgroundColor:[UIColor whiteColor]];
     [self.tabBar setBackgroundImage:[UIImage new]];
     
+    
     //通过这两个参数来调整badge位置
-    //    [self.tabBar setTabIconWidth:29];
-    //    [self.tabBar setBadgeTop:9];
+//        [self.tabBar setTabIconWidth:29];
+//        [self.tabBar setBadgeTop:9];
     
 }
 
 - (void)addChildViewControllers{
     
-    [self setTabBarViewControllers:[HomeViewController new] barItemTitle:@"主页" barItemImage:@"icon_home_normal" selectedImage:@"icon_home_highlight"];
+    [self setTabBarViewControllers:[HomeViewController new] barItemTitle:@"主页" barItemImage:@"icon_home_nor" selectedImage:@"icon_home_hlt"];
     
-    [self setTabBarViewControllers:[UIViewController new] barItemTitle:@"主页1" barItemImage:@"icon_home_normal" selectedImage:@"icon_home_highlight"];
+    [self setTabBarViewControllers:[ProfileViewController new] barItemTitle:@"个人中心" barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
+}
+
+#pragma mark - tabbarVc delegate
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    // 被点击后的回调
 }
 
 #pragma mark - private
@@ -65,7 +75,7 @@
     [viewController.tabBarItem setTitleTextAttributes:attsDic forState:UIControlStateNormal];
     [viewController.tabBarItem setTitleTextAttributes:selectedAtts forState:UIControlStateSelected];
 
-    MainNavController * nav = [[MainNavController alloc] initWithRootViewController:viewController];
+    RootNavigationController * nav = [[RootNavigationController alloc] initWithRootViewController:viewController];
     
     [self addChildViewController:nav];
     
@@ -80,6 +90,15 @@
     }else{
         [self.tabBar setBadgeStyle:kCustomBadgeStyleNone value:0 atIndex:index];
     }
+}
+
+#pragma mark - 旋转支持
+
+- (BOOL)shouldAutorotate {
+    return [self.selectedViewController shouldAutorotate];
+}
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return [self.selectedViewController supportedInterfaceOrientations];
 }
 
 @end

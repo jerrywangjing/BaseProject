@@ -28,14 +28,12 @@
 {
     //导航栏主题 title文字属性
     UINavigationBar *navBar = [UINavigationBar appearance];
-    //导航栏背景图
-    //    [navBar setBackgroundImage:[UIImage imageNamed:@"tabBarBj"] forBarMetrics:UIBarMetricsDefault];
     
+    //导航栏背景图
+
     [navBar setBarTintColor:RGB(41, 40, 44)];    // 导航栏背景色
     [navBar setTintColor:[UIColor whiteColor]];
     [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName :[UIColor whiteColor], NSFontAttributeName : [UIFont systemFontOfSize:18]}];
-    
-    [navBar setBackgroundImage:[UIImage createImageWithColor:RGB(41, 40, 44)] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     
     [navBar setShadowImage:[UIImage new]];  //去掉阴影线
 }
@@ -51,6 +49,7 @@
     
     //只有在使用转场动画时，禁用系统手势，开启自定义右划手势
     _popRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(handleNavigationTransition:)];
+    
     //下面是全屏返回
     //        _popRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleNavigationTransition:)];
     _popRecognizer.edges = UIRectEdgeLeft;
@@ -76,7 +75,7 @@
 }
 
 //push时隐藏tabbar
-- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+- (void)pushViewController:(UIViewController<XYTransitionProtocol> *)viewController animated:(BOOL)animated
 {
     if (self.viewControllers.count > 0) {
         if ([viewController conformsToProtocol:@protocol(XYTransitionProtocol)] && [self isNeedTransition:viewController]) {
@@ -87,6 +86,7 @@
         
     }
     [super pushViewController:viewController animated:animated];
+    
     // 修改tabBar的frame
     CGRect frame = self.tabBarController.tabBar.frame;
     frame.origin.y = [UIScreen mainScreen].bounds.size.height - frame.size.height;

@@ -7,10 +7,8 @@
 //
 
 #import "RootViewController.h"
-#import <MJRefresh.h>
 
 @interface RootViewController ()
-
 @property (nonatomic,strong) UIImageView* noDataView;
 
 @end
@@ -28,7 +26,6 @@
 }
 
 // 动态更新状态栏颜色
-
 - (void)setStatusBarStyle:(UIStatusBarStyle)statusBarStyle{
     _statusBarStyle = statusBarStyle;
     [self setNeedsStatusBarAppearanceUpdate];
@@ -44,7 +41,6 @@
     self.isShowNavBackBtn = YES;
     
     self.statusBarStyle = UIStatusBarStyleLightContent;
-    self.automaticallyAdjustsScrollViewInsets = NO;
     
 }
 
@@ -97,10 +93,15 @@
  *
  *  @return UITableView
  */
+
 - (UITableView *)tableView
 {
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - NavBarH - TabBarH) style:UITableViewStylePlain];
+        
+        CGFloat navbarH = self.navigationController.navigationBarHidden ? 0:NavBarH;
+        CGFloat height = self.tabBarController.tabBar.isHidden ? (SCREEN_HEIGHT-navbarH) : (SCREEN_HEIGHT-navbarH-TabBarH);
+        
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, navbarH, SCREEN_WIDTH, height) style:self.tableViewStyle];
         _tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
         _tableView.estimatedRowHeight = 0;
         _tableView.estimatedSectionHeaderHeight = 0;
@@ -110,6 +111,7 @@
         MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
         header.automaticallyChangeAlpha = YES;
         header.lastUpdatedTimeLabel.hidden = YES;
+        
         _tableView.mj_header = header;
         
         //底部刷新
@@ -159,14 +161,23 @@
     return _collectionView;
 }
 
--(void)headerRereshing{
-    
+// 上拉刷新，下拉加载回调（子类需要重写实现）
+- (void)headerRereshing{
 }
 
--(void)footerRereshing{
-    
+- (void)footerRereshing{
 }
-
+- (void)endRefreshing{
+    
+    if (self.tableView) {
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+    }
+    if (self.collectionView) {
+        [self.collectionView.mj_header endRefreshing];
+        [self.collectionView.mj_footer endRefreshing];
+    }
+}
 /**
  *  是否显示返回按钮
  */
@@ -211,11 +222,6 @@
 - (void)addNavigationItemWithImageNames:(NSArray *)imageNames isLeft:(BOOL)isLeft target:(id)target action:(SEL)action tags:(NSArray *)tags
 {
     NSMutableArray * items = [[NSMutableArray alloc] init];
-    //调整按钮位置
-    //    UIBarButtonItem* spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    //    //将宽度设为负值
-    //    spaceItem.width= -5;
-    //    [items addObject:spaceItem];
     NSInteger i = 0;
     for (NSString * imageName in imageNames) {
         UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -226,7 +232,7 @@
         if (isLeft) {
             [btn setContentEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 10)];
         }else{
-            [btn setContentEdgeInsets:UIEdgeInsetsMake(0, 10, 0, -10)];
+//            [btn setContentEdgeInsets:UIEdgeInsetsMake(0, 10, 0, -10)];
         }
         
         btn.tag = [tags[i++] integerValue];
@@ -248,21 +254,15 @@
     
     NSMutableArray * items = [[NSMutableArray alloc] init];
     
-    //调整按钮位置
-    //    UIBarButtonItem* spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    //    //将宽度设为负值
-    //    spaceItem.width= -5;
-    //    [items addObject:spaceItem];
-    
     NSMutableArray * buttonArray = [NSMutableArray array];
     NSInteger i = 0;
     for (NSString * title in titles) {
         UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(0, 0, 30, 30);
         [btn setTitle:title forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
         btn.titleLabel.font = [UIFont systemFontOfSize:16];
-        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         btn.tag = [tags[i++] integerValue];
         [btn sizeToFit];
         
@@ -270,7 +270,7 @@
         if (isLeft) {
             [btn setContentEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 10)];
         }else{
-            [btn setContentEdgeInsets:UIEdgeInsetsMake(0, 10, 0, -10)];
+//            [btn setContentEdgeInsets:UIEdgeInsetsMake(0, 10, 0, -10)];
         }
         
         UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithCustomView:btn];
@@ -313,6 +313,5 @@
     // 默认进去类型
     return UIInterfaceOrientationPortrait;
 }
-
 
 @end

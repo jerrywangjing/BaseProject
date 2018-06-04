@@ -11,7 +11,7 @@
 #import "BaseWebViewController.h"
 #import "WJSysDatePickerView.h"
 #import "HMPopView.h"
-#import "TestViewController.h"
+#import "ProfileViewController.h"
 
 typedef NS_ENUM(NSUInteger, ShowViewType) {
     ShowViewTypeAlertSheetView,
@@ -34,15 +34,20 @@ typedef NS_ENUM(NSUInteger, ShowViewType) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"主页";
+    self.title = @"首页";
     
+    [self configNavbar];
     [self setupSubviews];
     [self loadData];
 }
 
+- (void)configNavbar{
+    [self addNavigationItemWithTitles:@[@"测试"] isLeft:NO target:self action:@selector(rightNavClick) tags:nil];
+}
+
 - (void)setupSubviews{
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
+    self.tableViewStyle = UITableViewStyleGrouped;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [UIView new];
@@ -52,6 +57,27 @@ typedef NS_ENUM(NSUInteger, ShowViewType) {
 
 - (void)loadData{
     _dataSource = @[@"AlertSheetView",@"AlertMultiSheetView",@"PopView",@"WebView",@"DataPickerView",@"TestBtn"];
+}
+
+#pragma mark - actions
+
+- (void)rightNavClick{
+    NSLog(@"right nav bar click");
+}
+
+#pragma mark - 刷新
+
+- (void)headerRereshing{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSLog(@"刷新数据完成");
+        [self endRefreshing];
+    });
+}
+- (void)footerRereshing{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSLog(@"加载数据完成");
+        [self endRefreshing];
+    });
 }
 
 #pragma mark - tableView delegate
@@ -117,13 +143,12 @@ typedef NS_ENUM(NSUInteger, ShowViewType) {
             [WJSysDatePickerView showSystemDatePickerViewWithMode:UIDatePickerModeDate confirmCallBack:nil cancelCallback:nil];
             break;
         case ShowViewTypeTest:
-            [self.navigationController pushViewController:[TestViewController new] animated:YES];
-            self.statusBarStyle = !self.statusBarStyle;
+            
+            [self.navigationController pushViewController:[ProfileViewController new] animated:YES];
             
         default:
             break;
     }
 }
-
 
 @end

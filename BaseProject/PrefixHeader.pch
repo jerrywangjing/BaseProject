@@ -17,7 +17,7 @@
 #import "HTTPRequstConst.h"
 #import "GlobalConst.h"
 #import "FontColorMacros.h"
-#import "HeaderMacros.h"
+#import "GlobalEnumBlock.h"
 #import "PathMacros.h"
 
 // 基础类
@@ -34,6 +34,7 @@
 #import <YYCache.h>
 #import <IQKeyboardManager.h>
 #import <Masonry.h>
+#import <SDAutoLayout.h>
 #import <DateTools.h>
 #import <PPNetworkHelper.h>
 

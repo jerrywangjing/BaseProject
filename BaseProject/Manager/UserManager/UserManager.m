@@ -13,7 +13,6 @@
 + (instancetype)sharedUserManager{
     
     static UserManager * manager = nil;
-    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [[self alloc] init];
@@ -25,7 +24,7 @@
 -(instancetype)init{
     self = [super init];
     if (self) {
-        //被踢下线
+        // 被踢下线通知
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(onKick)
                                                      name:KNotificationOnKick
@@ -35,6 +34,7 @@
 }
 
 #pragma mark ————— 三方登录 —————
+
 -(void)login:(UserLoginType )loginType completion:(loginBlock)completion{
     [self login:loginType params:nil completion:completion];
 }
@@ -159,14 +159,15 @@
     
 }
 #pragma mark ————— 储存用户信息 —————
+
 -(void)saveUserInfo{
     if (self.curUserInfo) {
         YYCache *cache = [[YYCache alloc]initWithName:KUserCacheName];
         NSDictionary *dic = [self.curUserInfo yy_modelToJSONObject];
         [cache setObject:dic forKey:KUserModelCache];
     }
-    
 }
+
 #pragma mark ————— 加载缓存的用户信息 —————
 -(BOOL)loadUserInfo{
     YYCache *cache = [[YYCache alloc]initWithName:KUserCacheName];

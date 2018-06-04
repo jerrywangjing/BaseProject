@@ -7,11 +7,11 @@
 //
 
 #import "AppDelegate+AppService.h"
-#import <MBProgressHUD.h>
 #import "MainTabBarController.h"
 #import "UserManager.h"
 #import "AppManager.h"
 #import "LoginViewController.h"
+#import <AFNetworking.h>
 
 @implementation AppDelegate (AppService)
 
@@ -29,36 +29,40 @@
     
     [[UIButton appearance] setExclusiveTouch:YES];  // 按钮的排他性设置，开启后，view同一时间只能响应一个按钮的点击事件
     [UIActivityIndicatorView appearanceWhenContainedIn:[MBProgressHUD class], nil].color = [UIColor whiteColor]; // 设置MBProgressHUD中的IndicatorView的颜色为白色
-    // ios 11 适配，防止tableView的滑动时的跳动问题
     if (@available(iOS 11.0, *)){
         [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
     }
 }
 
-
 #pragma mark ————— 初始化服务 —————
 -(void)initService{
-//    //注册登录状态监听
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(loginStateChange:)
-//                                                 name:KNotificationLoginStateChange
-//                                               object:nil];
-//
-//    //网络状态监听
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(netWorkStateChange:)
-//                                                 name:KNotificationNetWorkStateChange
-//                                               object:nil];
+    //注册登录状态监听
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loginStateChange:)
+                                                 name:KNotificationLoginStateChange
+                                               object:nil];
+
+    //网络状态监听
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(netWorkStateChange:)
+                                                 name:KNotificationNetWorkStateChange
+                                               object:nil];
 }
+
 
 #pragma mark ————— 初始化网络配置 —————
+
 -(void)NetWorkConfig{
-//    YTKNetworkConfig *config = [YTKNetworkConfig sharedConfig];
-//    config.baseUrl = URL_main;
+    // 配置 PPNetworkHelper 相关参数
+    
+    [PPNetworkHelper setAFHTTPSessionManagerProperty:^(AFHTTPSessionManager *sessionManager) {
+       sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/html", nil];
+    }];
+    [PPNetworkHelper setRequestSerializer:PPRequestSerializerJSON];
 }
 
-
 #pragma mark ————— 初始化用户系统 —————
+
 -(void)initUserManager{
 //    DLog(@"设备IMEI ：%@",[OpenUDID value]);
     
@@ -82,9 +86,8 @@
         }];
         
     }else{
-        //没有登录过，展示登录页面
-        [kNotificationCenter postNotificationName:KNotificationLoginStateChange object:@NO];
-        //        [MBProgressHUD showErrorMessage:@"需要登录"];
+        //没有登录过，展示登录页面,测试改为了@YES
+        [kNotificationCenter postNotificationName:KNotificationLoginStateChange object:@YES];
     }
 }
 
@@ -96,6 +99,7 @@
     if (loginSuccess) {//登陆成功加载主窗口控制器
         
         //为避免自动登录成功刷新tabbar
+        
         if (!self.mainTabBar || ![self.window.rootViewController isKindOfClass:[MainTabBarController class]]) {
             self.mainTabBar = [MainTabBarController new];
             
@@ -246,7 +250,7 @@
     
 }
 
-+ (AppDelegate *)shareAppDelegate{
++ (AppDelegate *)sharedAppDelegate{
     return (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 

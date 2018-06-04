@@ -7,6 +7,7 @@
 //  基类
 
 #import <UIKit/UIKit.h>
+#import <MJRefresh.h>
 
 @interface RootViewController : UIViewController
 
@@ -15,6 +16,7 @@
  */
 @property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
 
+@property (nonatomic,assign) UITableViewStyle tableViewStyle;   // tableView 样式，需要提前设置，默认：plain
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) UICollectionView * collectionView;
 
@@ -38,6 +40,11 @@
  *  停止加载
  */
 - (void)stopLoadingAnimation;
+
+// 上拉刷新，下拉加载
+- (void)headerRereshing;
+- (void)footerRereshing;
+- (void)endRefreshing;
 
 /**
  *  是否显示返回按钮,默认情况是YES

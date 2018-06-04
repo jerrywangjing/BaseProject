@@ -1,4 +1,3 @@
-# Uncomment the next line to define a global platform for your project
 
 platform :ios, '8.0'
 target 'BaseProject' do
@@ -7,7 +6,24 @@ target 'BaseProject' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
-  # Pods for BaseProject
+# 已安装三方库的版本
+
+# Installing AFNetworking (3.2.1)
+# Installing CocoaAsyncSocket (7.6.3)
+# Installing DZNEmptyDataSet (1.8.1)
+# Installing DateTools (2.0.0)
+# Installing IQKeyboardManager (6.0.3)
+# Installing MBProgressHUD (1.1.0)
+# Installing MJRefresh (3.1.15.3)
+# Installing Masonry (1.1.0)
+# Installing PPNetworkHelper (0.8.1)
+# Installing SDWebImage (4.3.3)
+# Installing SocketRocket (0.5.1)
+# Installing WebViewJavascriptBridge (6.0.3)
+# Installing YYCache (1.0.4)
+# Installing YYModel (1.0.4)
+# Installing YYText (1.0.7)
+# Installing SDAutoLayout (2.2.0)
 
 
 #### 常用的三方库
@@ -15,7 +31,10 @@ target 'BaseProject' do
 pod 'AFNetworking'          # 网络库
 pod 'PPNetworkHelper'       # 网络辅助库(带缓存，已安装:YYCache库)
 pod 'SDWebImage'            # 图片加载库
+
 pod 'Masonry'               # 约束布局库
+pod 'SDAutoLayout'
+
 pod 'DateTools'             # 日期工具库
 
 pod 'DZNEmptyDataSet'       # scrollView 空数据提示控件

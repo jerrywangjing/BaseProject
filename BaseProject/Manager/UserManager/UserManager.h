@@ -11,9 +11,9 @@
 
 typedef NS_ENUM(NSInteger, UserLoginType){
     kUserLoginTypeUnKnow = 0,   //未知
+    kUserLoginTypeAccount,      //账号登录
     kUserLoginTypeWeChat,       //微信登录
     kUserLoginTypeQQ,           //QQ登录
-    kUserLoginTypePwd,          //账号登录
 };
 
 
@@ -24,10 +24,11 @@ typedef void (^loginBlock)(BOOL success, NSString * des);
 #define userManager [UserManager sharedUserManager]
 
 /**
- 包含用户相关服务
+ 包含用户相关服务，处理登录，注册，登出等逻辑
  */
 
 @interface UserManager : NSObject
+
 //单例
 + (instancetype)sharedUserManager;
 
@@ -64,7 +65,7 @@ typedef void (^loginBlock)(BOOL success, NSString * des);
 
 /**
  退出登录
- 
+
  @param completion 回调
  */
 - (void)logout:(loginBlock)completion;

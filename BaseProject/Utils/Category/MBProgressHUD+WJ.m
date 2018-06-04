@@ -21,13 +21,13 @@ const NSInteger hideTime = 2;
     }else{
         [hud showAnimated:YES];
     }
-    hud.minSize = CGSizeMake(100, 100);
+    
     hud.label.text=message?message:@"加载中...";
     hud.label.font=[UIFont systemFontOfSize:15];
     hud.label.textColor= [UIColor whiteColor];
     hud.label.numberOfLines = 0;
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
-    hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.9];
+    hud.bezelView.color = [UIColor colorWithWhite:0 alpha:0.8];
     hud.removeFromSuperViewOnHide = YES;
     [hud setContentColor:[UIColor whiteColor]];
     

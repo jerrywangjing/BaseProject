@@ -8,7 +8,6 @@
 
 #import "HMHealthRecordListView.h"
 #import "ZYPinYinSearch.h"
-#import "MainNavController.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import "LDRefresh.h"
 #import "HMSearchBar.h"
@@ -684,7 +683,7 @@ static const CGFloat HRSearchBarH = 44;
     searchVc.searchHistoryStyle = PYSearchHistoryStyleBorderTag;
     searchVc.hotSearchStyle = PYHotSearchStyleARCBorderTag;
     
-    MainNavController *nav = [[MainNavController alloc] initWithRootViewController:searchVc];
+    RootNavigationController * nav = [[RootNavigationController alloc] initWithRootViewController:searchVc];
     [(UIViewController *)self.delegate presentViewController:nav  animated:NO completion:nil];
     
 }
