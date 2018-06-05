@@ -12,6 +12,7 @@
 		6EA1A27B65DB750EED03E10E /* libPods-BaseProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4E1A25930E2ACD38E866D7 /* libPods-BaseProjectTests.a */; };
 		863F5E7620C51FF500D37C68 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 863F5E7520C51FF500D37C68 /* ProfileViewController.m */; };
 		863F5E7A20C53D5400D37C68 /* AdPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 863F5E7920C53D5400D37C68 /* AdPageView.m */; };
+		863F5E8220C68DD000D37C68 /* WJCustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 863F5E8120C68DD000D37C68 /* WJCustomTabBar.m */; };
 		86C9847E20C14FA4003F55D5 /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C9847D20C14FA4003F55D5 /* RootNavigationController.m */; };
 		86C9848320C1506D003F55D5 /* XYTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C9848120C1506D003F55D5 /* XYTransition.m */; };
 		86D88CF020C11A25007CC6E7 /* BaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D88CEF20C11A25007CC6E7 /* BaseCellModel.m */; };
@@ -168,6 +169,8 @@
 		863F5E7520C51FF500D37C68 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		863F5E7820C53D5400D37C68 /* AdPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdPageView.h; sourceTree = "<group>"; };
 		863F5E7920C53D5400D37C68 /* AdPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdPageView.m; sourceTree = "<group>"; };
+		863F5E8020C68DD000D37C68 /* WJCustomTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJCustomTabBar.h; sourceTree = "<group>"; };
+		863F5E8120C68DD000D37C68 /* WJCustomTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJCustomTabBar.m; sourceTree = "<group>"; };
 		86C9847C20C14FA4003F55D5 /* RootNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootNavigationController.h; sourceTree = "<group>"; };
 		86C9847D20C14FA4003F55D5 /* RootNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
 		86C9848020C1506D003F55D5 /* XYTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTransition.h; sourceTree = "<group>"; };
@@ -494,6 +497,15 @@
 			path = NewFeatureView;
 			sourceTree = "<group>";
 		};
+		863F5E7F20C68DAC00D37C68 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				863F5E8020C68DD000D37C68 /* WJCustomTabBar.h */,
+				863F5E8120C68DD000D37C68 /* WJCustomTabBar.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		86C9847F20C1506D003F55D5 /* XYTransition */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,8 +539,8 @@
 			isa = PBXGroup;
 			children = (
 				C4225F58206B794A008532B9 /* Controller */,
+				863F5E7F20C68DAC00D37C68 /* View */,
 				C4412CB220C39BDE0073E6D1 /* Model */,
-				C4412CB320C39BDE0073E6D1 /* View */,
 				C4412CB120C39BDE0073E6D1 /* Service */,
 			);
 			path = Home;
@@ -726,13 +738,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		C4412CB320C39BDE0073E6D1 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		C4412CB920C3A20F0073E6D1 /* UserManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -771,11 +776,11 @@
 			children = (
 				C44685A91EDBBD76000A57F8 /* AppDelegate */,
 				86D88CED20C10DD4007CC6E7 /* Base */,
-				C44685B41EDBBD76000A57F8 /* Modules */,
 				C44685B31EDBBD76000A57F8 /* Manager */,
 				C44685B71EDBBD76000A57F8 /* Utils */,
 				C4E1F50F1EE68F2100CBB6C7 /* ThirdParyLib */,
 				C44685AB1EDBBD76000A57F8 /* Macros&Const */,
+				C44685B41EDBBD76000A57F8 /* Modules */,
 				C44685B51EDBBD76000A57F8 /* Resource */,
 				C44685751EDBBCCC000A57F8 /* Supporting Files */,
 			);
@@ -1385,6 +1390,7 @@
 				C4E1F5801EE68F2100CBB6C7 /* ThumbsMainToolbar.m in Sources */,
 				C4E1F4FF1EE6478200CBB6C7 /* NewFeatureViewController.m in Sources */,
 				86D88D1A20C13D28007CC6E7 /* UITabBar+CustomBadge.m in Sources */,
+				863F5E8220C68DD000D37C68 /* WJCustomTabBar.m in Sources */,
 				C4E1F5721EE68F2100CBB6C7 /* ReaderContentTile.m in Sources */,
 				C44686391EDBD970000A57F8 /* UIView+WJExtension.m in Sources */,
 				86C9847E20C14FA4003F55D5 /* RootNavigationController.m in Sources */,

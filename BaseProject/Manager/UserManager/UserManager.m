@@ -158,6 +158,7 @@
 //    }
     
 }
+
 #pragma mark ————— 储存用户信息 —————
 
 -(void)saveUserInfo{
@@ -185,6 +186,7 @@
 }
 #pragma mark ————— 退出登录 —————
 - (void)logout:(void (^)(BOOL, NSString *))completion{
+    
 //    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 //
 //    [[UIApplication sharedApplication] unregisterForRemoteNotifications];

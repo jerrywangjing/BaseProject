@@ -159,7 +159,6 @@
 
 -(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
 {
-    NSLog(@"转场动画代理方法");
     self.isSystemSlidBack = YES;
     //如果来源VC和目标VC都实现协议，那么都做动画
     if ([fromVC conformsToProtocol:@protocol(XYTransitionProtocol)] && [toVC conformsToProtocol:@protocol(XYTransitionProtocol)]) {

@@ -15,7 +15,6 @@
  *  修改状态栏颜色
  */
 @property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
-
 @property (nonatomic,assign) UITableViewStyle tableViewStyle;   // tableView 样式，需要提前设置，默认：plain
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) UICollectionView * collectionView;
@@ -34,12 +33,12 @@
 /**
  *  加载视图
  */
-- (void)showLoadingAnimation;
+- (void)showLoadingActivity;
 
 /**
  *  停止加载
  */
-- (void)stopLoadingAnimation;
+- (void)stopLoadingActivity;
 
 // 上拉刷新，下拉加载
 - (void)headerRereshing;
@@ -83,7 +82,7 @@
  */
 - (void)backBtnDidClick;
 
-//取消网络请求
-- (void)cancelRequest;
+//取消所有网络请求
+- (void)cancelAllRequest;
 
 @end

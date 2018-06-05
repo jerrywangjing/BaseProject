@@ -15,11 +15,7 @@
 
 @implementation RootViewController
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - 系统状态栏
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return _statusBarStyle;
@@ -31,6 +27,13 @@
     [self setNeedsStatusBarAppearanceUpdate];
 }
 
+#pragma mark - init
+
+- (void)dealloc{
+    [self cancelAllRequest];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -39,7 +42,6 @@
     // 默认配置
     
     self.isShowNavBackBtn = YES;
-    
     self.statusBarStyle = UIStatusBarStyleLightContent;
     
 }
@@ -59,14 +61,11 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
-- (void)showLoadingAnimation
-{
-    
+- (void)showLoadingActivity{
+    [MBProgressHUD showActivityMessageInWindow:nil];
 }
-
-- (void)stopLoadingAnimation
-{
-    
+- (void)stopLoadingActivity{
+    [MBProgressHUD hideHUD];
 }
 
 -(void)showNoDataImage
@@ -88,6 +87,11 @@
     }
 }
 
+//取消请求
+- (void)cancelAllRequest{
+    [PPNetworkHelper cancelAllRequest];
+}
+
 /**
  *  懒加载UITableView
  *
@@ -101,7 +105,7 @@
         CGFloat navbarH = self.navigationController.navigationBarHidden ? 0:NavBarH;
         CGFloat height = self.tabBarController.tabBar.isHidden ? (SCREEN_HEIGHT-navbarH) : (SCREEN_HEIGHT-navbarH-TabBarH);
         
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, navbarH, SCREEN_WIDTH, height) style:self.tableViewStyle];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, navbarH, SCREEN_WIDTH,height) style:self.tableViewStyle];
         _tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
         _tableView.estimatedRowHeight = 0;
         _tableView.estimatedSectionHeaderHeight = 0;
@@ -167,6 +171,7 @@
 
 - (void)footerRereshing{
 }
+
 - (void)endRefreshing{
     
     if (self.tableView) {
@@ -178,6 +183,7 @@
         [self.collectionView.mj_footer endRefreshing];
     }
 }
+
 /**
  *  是否显示返回按钮
  */
@@ -199,6 +205,8 @@
     }
 }
 
+// 返回按钮点击回调
+
 - (void)backBtnDidClick{
     
     if (self.presentingViewController) {
@@ -207,6 +215,7 @@
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
+
 
 #pragma mark ————— 导航栏 添加图片按钮 —————
 /**
@@ -282,16 +291,6 @@
     } else {
         self.navigationItem.rightBarButtonItems = items;
     }
-}
-
-//取消请求
-- (void)cancelRequest{
-    
-}
-
-- (void)dealloc{
-    [self cancelRequest];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark -  屏幕旋转

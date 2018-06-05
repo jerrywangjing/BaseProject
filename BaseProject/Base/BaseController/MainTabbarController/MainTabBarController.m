@@ -8,11 +8,12 @@
 
 #import "MainTabBarController.h"
 #import "UITabBar+CustomBadge.h"
+#import "WJCustomTabBar.h"
 #import "RootNavigationController.h"
 #import "ProfileViewController.h"
 #import "HomeViewController.h"
 
-@interface MainTabBarController ()<UITabBarControllerDelegate>
+@interface MainTabBarController ()<WJCustomTabBarDelegate>
 
 @end
 
@@ -36,8 +37,12 @@
 
 - (void)setupTabbar{
     
+    // 使用自定义tabbar
+    WJCustomTabBar *customTabBar = [[WJCustomTabBar alloc] init];
+    customTabBar.delegate = self;
+    [self setValue:[WJCustomTabBar new] forKey:@"tabBar"];
+    
     //设置背景色 去掉分割线
-//    [self setValue:[XYTabBar new] forKey:@"tabBar"]; // 用于自定义tabbar
     
     [self.tabBar setBackgroundColor:[UIColor whiteColor]];
     [self.tabBar setBackgroundImage:[UIImage new]];
@@ -56,10 +61,10 @@
     [self setTabBarViewControllers:[ProfileViewController new] barItemTitle:@"个人中心" barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
 }
 
-#pragma mark - tabbarVc delegate
+#pragma mark - tabBar delegate
 
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
-    // 被点击后的回调
+- (void)customTabBar:(WJCustomTabBar *)tabBar didClickItem:(id)item{
+    NSLog(@"item:%@",item);
 }
 
 #pragma mark - private
