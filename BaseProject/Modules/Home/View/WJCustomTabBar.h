@@ -12,12 +12,13 @@
 
 @protocol WJCustomTabBarDelegate <NSObject>
 
+- (void)customTabBar:(WJCustomTabBar *)tabBar didClickCenterItem:(id)item;
 - (void)customTabBar:(WJCustomTabBar *)tabBar didClickItem:(id)item;
 
 @end
 
 @interface WJCustomTabBar : UITabBar
 
-@property (nonatomic,weak) id<WJCustomTabBarDelegate> delegate;
+@property (nonatomic,weak) id<WJCustomTabBarDelegate> customDelegate;
 
 @end

@@ -22,8 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.delegate = self;
-    
     // setup tabbar
     [self setupTabbar];
     
@@ -39,14 +37,13 @@
     
     // 使用自定义tabbar
     WJCustomTabBar *customTabBar = [[WJCustomTabBar alloc] init];
-    customTabBar.delegate = self;
-    [self setValue:[WJCustomTabBar new] forKey:@"tabBar"];
+    customTabBar.customDelegate = self;
+    [self setValue:customTabBar forKey:@"tabBar"];
     
     //设置背景色 去掉分割线
     
     [self.tabBar setBackgroundColor:[UIColor whiteColor]];
     [self.tabBar setBackgroundImage:[UIImage new]];
-    
     
     //通过这两个参数来调整badge位置
 //        [self.tabBar setTabIconWidth:29];
@@ -56,15 +53,19 @@
 
 - (void)addChildViewControllers{
     
-    [self setTabBarViewControllers:[HomeViewController new] barItemTitle:@"主页" barItemImage:@"icon_home_nor" selectedImage:@"icon_home_hlt"];
+    [self setTabBarViewControllers:[HomeViewController new] barItemTitle:@"首页" barItemImage:@"icon_home_nor" selectedImage:@"icon_home_hlt"];
     
-    [self setTabBarViewControllers:[ProfileViewController new] barItemTitle:@"个人中心" barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
+    [self setTabBarViewControllers:[ProfileViewController new] barItemTitle:@"测试1" barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
+    
+    [self setTabBarViewControllers:[ProfileViewController new] barItemTitle:@"测试2" barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
+    [self setTabBarViewControllers:[ProfileViewController new] barItemTitle:@"测试3" barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
+    
 }
 
 #pragma mark - tabBar delegate
 
-- (void)customTabBar:(WJCustomTabBar *)tabBar didClickItem:(id)item{
-    NSLog(@"item:%@",item);
+- (void)customTabBar:(WJCustomTabBar *)tabBar didClickCenterItem:(id)item{
+    NSLog(@"centerItem:%@",item);
 }
 
 #pragma mark - private

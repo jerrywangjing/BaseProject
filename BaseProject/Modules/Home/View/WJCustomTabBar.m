@@ -17,6 +17,7 @@
 
 - (instancetype)init{
     if (self = [super init]) {
+        self.delegate = self;
         [self setupCustomView];
     }
     return self;
@@ -28,9 +29,10 @@
     
     UIButton *centerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _centerBtn = centerBtn;
-    centerBtn.frame = CGRectMake(0, 0, 50, 50);
-    [centerBtn setBackgroundImage:[UIImage imageNamed:@"icon_boy"] forState:UIControlStateNormal];
-    [centerBtn setBackgroundImage:[UIImage imageNamed:@"icon_boy"] forState:UIControlStateHighlighted];
+    
+    [centerBtn setImage:[UIImage imageNamed:@"icon_boy"] forState:UIControlStateNormal];
+    [centerBtn setImage:[UIImage imageNamed:@"icon_boy"] forState:UIControlStateHighlighted];
+    centerBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     [self addSubview:centerBtn];
     
@@ -50,16 +52,21 @@
     
     CGFloat barWidth = self.bounds.size.width;
     CGFloat barHeight = self.bounds.size.height;
-    CGFloat centerBtnWidth = CGRectGetWidth(self.centerBtn.frame);
-    CGFloat centerBtnHeight = CGRectGetHeight(self.centerBtn.frame);
+    CGFloat centerBtnWidth = barWidth / (tabBarButtonArray.count + 1);
+    CGFloat centerBtnHeight = barHeight;
     
-    // 设置中间按钮的位置，居中，凸起一丢丢
-    CGFloat offsetY = -5;
-    self.centerBtn.center = CGPointMake(barWidth / 2, barHeight - centerBtnHeight/2 + offsetY);
+    // 设置中间按钮的位置，及偏移量
     
+    CGFloat offsetY = 0;
+    
+    self.centerBtn.frame = CGRectMake(0, 0, centerBtnWidth, centerBtnHeight);
+    self.centerBtn.center = CGPointMake(barWidth/2, barHeight/2 + offsetY);
+
     // 重新布局其他 tabBarItem
     // 平均分配其他 tabBarItem 的宽度
-    CGFloat barItemWidth = (barWidth - centerBtnWidth) / tabBarButtonArray.count;
+    
+    CGFloat barItemWidth = (barWidth-centerBtnWidth) / tabBarButtonArray.count;
+
     // 逐个布局 tabBarItem，修改 UITabBarButton 的 frame
     [tabBarButtonArray enumerateObjectsUsingBlock:^(UIView *  _Nonnull view, NSUInteger idx, BOOL * _Nonnull stop) {
         
@@ -79,16 +86,16 @@
 #pragma mark - action
 
 - (void)centerBtnDidClick:(UIButton *)btn{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(customTabBar:didClickItem:)]) {
-        [self.delegate customTabBar:self didClickItem:btn];
+    if (self.customDelegate && [self.customDelegate respondsToSelector:@selector(customTabBar:didClickCenterItem:)]) {
+        [self.customDelegate customTabBar:self didClickCenterItem:btn];
     }
 }
 
 #pragma mark - tabbar delegate
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(customTabBar:didClickItem:)]) {
-        [self.delegate customTabBar:self didClickItem:item];
+    if (self.customDelegate && [self.customDelegate respondsToSelector:@selector(customTabBar:didClickItem:)]) {
+        [self.customDelegate customTabBar:self didClickItem:item];
     }
 }
 

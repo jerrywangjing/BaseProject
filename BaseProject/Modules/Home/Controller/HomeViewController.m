@@ -34,8 +34,6 @@ typedef NS_ENUM(NSUInteger, ShowViewType) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"首页";
-    
     [self configNavbar];
     [self setupSubviews];
     [self loadData];
