@@ -140,6 +140,8 @@
 		C4E1F5801EE68F2100CBB6C7 /* ThumbsMainToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E1F5511EE68F2100CBB6C7 /* ThumbsMainToolbar.m */; };
 		C4E1F5811EE68F2100CBB6C7 /* ThumbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E1F5531EE68F2100CBB6C7 /* ThumbsViewController.m */; };
 		C4E1F5821EE68F2100CBB6C7 /* UIXToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E1F5551EE68F2100CBB6C7 /* UIXToolbarView.m */; };
+		C4E7456620CCDAE600C890CF /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E7456520CCDAE600C890CF /* TestModel.m */; };
+		C4E7457020CCE26C00C890CF /* APIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E7456F20CCE26C00C890CF /* APIRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -399,6 +401,14 @@
 		C4E1F5531EE68F2100CBB6C7 /* ThumbsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbsViewController.m; sourceTree = "<group>"; };
 		C4E1F5541EE68F2100CBB6C7 /* UIXToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXToolbarView.h; sourceTree = "<group>"; };
 		C4E1F5551EE68F2100CBB6C7 /* UIXToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIXToolbarView.m; sourceTree = "<group>"; };
+		C4E7456420CCDAE600C890CF /* TestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestModel.h; sourceTree = "<group>"; };
+		C4E7456520CCDAE600C890CF /* TestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
+		C4E7456A20CCDCC600C890CF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C4E7456B20CCDE3E00C890CF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C4E7456C20CCDFDC00C890CF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C4E7456D20CCE02400C890CF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C4E7456E20CCE26C00C890CF /* APIRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIRequest.h; sourceTree = "<group>"; };
+		C4E7456F20CCE26C00C890CF /* APIRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIRequest.m; sourceTree = "<group>"; };
 		DA4E1A25930E2ACD38E866D7 /* libPods-BaseProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6503479302CAE14867671D7 /* libPods-BaseProjectUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProjectUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE072162DFF1F0587568BCDB /* Pods-BaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseProject/Pods-BaseProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -502,6 +512,7 @@
 			children = (
 				863F5E8020C68DD000D37C68 /* WJCustomTabBar.h */,
 				863F5E8120C68DD000D37C68 /* WJCustomTabBar.m */,
+				C4E7456D20CCE02400C890CF /* README.md */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -551,6 +562,7 @@
 			children = (
 				C4225F5B206B7988008532B9 /* HomeViewController.h */,
 				C4225F5C206B7988008532B9 /* HomeViewController.m */,
+				C4E7456B20CCDE3E00C890CF /* README.md */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -727,6 +739,9 @@
 		C4412CB120C39BDE0073E6D1 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				C4E7456A20CCDCC600C890CF /* README.md */,
+				C4E7456E20CCE26C00C890CF /* APIRequest.h */,
+				C4E7456F20CCE26C00C890CF /* APIRequest.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -734,6 +749,9 @@
 		C4412CB220C39BDE0073E6D1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C4E7456420CCDAE600C890CF /* TestModel.h */,
+				C4E7456520CCDAE600C890CF /* TestModel.m */,
+				C4E7456C20CCDFDC00C890CF /* README.md */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1403,10 +1421,12 @@
 				C4225F60206B8467008532B9 /* HMRefreshTableViewController.m in Sources */,
 				863F5E7A20C53D5400D37C68 /* AdPageView.m in Sources */,
 				C4225FB7206DDE8E008532B9 /* HMPopView.m in Sources */,
+				C4E7457020CCE26C00C890CF /* APIRequest.m in Sources */,
 				C4E1F57A1EE68F2100CBB6C7 /* ReaderThumbQueue.m in Sources */,
 				C4E1F50E1EE64C4200CBB6C7 /* DBManager.m in Sources */,
 				C44686341EDBD970000A57F8 /* NSString+WJExtension.m in Sources */,
 				C4225FE5206DE016008532B9 /* ChineseToPinyinResource.m in Sources */,
+				C4E7456620CCDAE600C890CF /* TestModel.m in Sources */,
 				C4E1F5821EE68F2100CBB6C7 /* UIXToolbarView.m in Sources */,
 				C4E1F57D1EE68F2100CBB6C7 /* ReaderThumbsView.m in Sources */,
 				C4225FEA206DE016008532B9 /* PinyinHelper.m in Sources */,
