@@ -40,9 +40,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     // 默认配置
-    
     self.isShowNavBackBtn = YES;
-    self.statusBarStyle = UIStatusBarStyleLightContent;
     
 }
 

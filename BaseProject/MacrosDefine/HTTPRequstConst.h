@@ -19,9 +19,12 @@ UIKIT_EXTERN NSString * const URL_base;
 
 #pragma mark - 详细接口地址
 
-// 登录注册
+// 登录/注册接口
 
-/** 登录 */
-UIKIT_EXTERN NSString * const URL_login;
-/** 注册 */
-UIKIT_EXTERN NSString * const URL_regist;
+UIKIT_EXTERN NSString * const URL_login;                        // 登录
+UIKIT_EXTERN NSString * const URL_logout;                       // 登出
+UIKIT_EXTERN NSString * const URL_regist;                       // 注册
+UIKIT_EXTERN NSString * const URL_uploadIcon;                   // 上传头像
+UIKIT_EXTERN NSString * const URL_sendSMS;                      // 发送验证码
+UIKIT_EXTERN NSString * const URL_updateUserInfo;               // 修改用户信息
+UIKIT_EXTERN NSString * const URL_updateUserPwd;                // 修改用户密码

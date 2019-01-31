@@ -8,32 +8,55 @@
 #import <Foundation/Foundation.h>
 #import <AFNetworking.h>
 
+
+@class WJError;
+
 /*
  * 网络库应用层封装，可以处理应用级相关的逻辑，比如对数据的特殊处理
  */
 
 /** 请求成功的Block */
-typedef void(^WJHttpRequestSuccess)(id responseObject);
+typedef void(^WJHttpRequestSuccess)(WJError *error,id data,NSString *tipMsg); // tipMsg:后台返回的提示语
 /** 请求失败的Block */
 typedef void(^WJHttpRequestFailed)(NSError *error);
 /** 缓存的Block */
 typedef void(^WJHttpRequestCache)(id responseCache);
+
 /// 上传或者下载的进度, Progress.completedUnitCount:当前大小 - Progress.totalUnitCount:总大小
 typedef void (^WJHttpProgress)(NSProgress *progress);
 
 
+typedef NS_ENUM(NSUInteger, WJHttpRespState) {
+    
+    WJHttpRespStateSuccess = 200,
+    WJHttpRespStateAccountError = 400,
+    WJHttpRespStateLogout = 401,
+    WJHttpRespStateFailure = 500,
+};
+
+
 @interface HttpNetWorkTool : NSObject
 
+/// 有网络:YES, 反之:NO
++ (BOOL)isNetworkReachable;
+/// WiFi网络:YES, 反之:NO
++ (BOOL)isWiFiNetwork;
+/// 取消指定URL的HTTP请求
++ (void)cancelRequestWithURL:(NSString *)URL;
+/// 取消所有HTTP请求
++ (void)cancelAllRequest;
+
+
 /// GET, 无缓存
-+ (void)GET:(NSString *)url params:(NSDictionary *)params success:(WJHttpRequestSuccess)success failure:(WJHttpRequestFailed)failure;
++ (void)GET:(NSString *)url params:(id)params success:(WJHttpRequestSuccess)success failure:(WJHttpRequestFailed)failure;
 /// GET, 自动缓存
-+ (void)GET:(NSString *)url params:(NSDictionary *)params responseCache:(WJHttpRequestCache)responseCache success:(WJHttpRequestSuccess)success failure:(WJHttpRequestFailed)failure;
++ (void)GET:(NSString *)url params:(id)params responseCache:(WJHttpRequestCache)responseCache success:(WJHttpRequestSuccess)success failure:(WJHttpRequestFailed)failure;
 
 
 /// POST, 无缓存
-+ (void)POST:(NSString *)url params:(NSDictionary *)params success:(WJHttpRequestSuccess)success failure:(WJHttpRequestFailed)failure;
++ (void)POST:(NSString *)url params:(id)params success:(WJHttpRequestSuccess)success failure:(WJHttpRequestFailed)failure;
 /// POST, 自动缓存
-+ (void)POST:(NSString *)url params:(NSDictionary *)params responseCache:(WJHttpRequestCache)responseCache success:(WJHttpRequestSuccess)success failure:(WJHttpRequestFailed)failure;
++ (void)POST:(NSString *)url params:(id)params responseCache:(WJHttpRequestCache)responseCache success:(WJHttpRequestSuccess)success failure:(WJHttpRequestFailed)failure;
 
 
 /**
@@ -42,7 +65,9 @@ typedef void (^WJHttpProgress)(NSProgress *progress);
  *  @param URL        请求地址
  *  @param parameters 请求参数
  *  @param name       文件对应服务器上的字段
- *  @param filePath   文件本地的沙盒路径
+ *  @param fileUrl    本地文件路径
+ *  @param fileName   本地文件名称
+ *  @param fileData   文件数据
  *  @param progress   上传进度信息
  *  @param success    请求成功的回调
  *  @param failure    请求失败的回调
@@ -52,7 +77,9 @@ typedef void (^WJHttpProgress)(NSProgress *progress);
 + (__kindof NSURLSessionTask *)uploadFileWithURL:(NSString *)URL
                                       parameters:(id)parameters
                                             name:(NSString *)name
-                                        filePath:(NSString *)filePath
+                                         fileUrl:(NSURL *)fileUrl
+                                        fileName:(NSString *)fileName
+                                        fileData:(NSData *)fileData
                                         progress:(WJHttpProgress)progress
                                          success:(WJHttpRequestSuccess)success
                                          failure:(WJHttpRequestFailed)failure;

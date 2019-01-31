@@ -11,9 +11,11 @@
 extern const CGFloat LDRefreshFooterHeight;
 
 @interface LDRefreshFooterView : UIView
-@property (nonatomic, assign) BOOL autoLoadMore;//default YES
-@property (nonatomic, assign) BOOL loadMoreEnabled; //default YES
+@property (nonatomic, assign) BOOL autoLoadMore;        //default NO
+@property (nonatomic, assign) BOOL loadMoreEnabled;     //default YES
+
 @property (nonatomic, assign) CGFloat dragHeight;
 
 - (void)endRefresh;
+
 @end

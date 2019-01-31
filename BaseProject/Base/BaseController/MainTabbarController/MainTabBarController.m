@@ -49,6 +49,8 @@
 //        [self.tabBar setTabIconWidth:29];
 //        [self.tabBar setBadgeTop:9];
     
+    // 注意：解决ios 12.1 导航栏返回时tabbar Item跳动的问题，如果更版本的系统解决后，取消即可
+    [[UITabBar appearance] setTranslucent:NO];
 }
 
 - (void)addChildViewControllers{
@@ -65,13 +67,14 @@
 #pragma mark - tabBar delegate
 
 - (void)customTabBar:(WJCustomTabBar *)tabBar didClickCenterItem:(id)item{
-    NSLog(@"centerItem:%@",item);
+    NSLog(@"centerItem click :%@",item);
 }
+
 
 #pragma mark - private
 
 - (void)setTabBarViewControllers:(UIViewController * )viewController barItemTitle:(NSString *)title barItemImage:(NSString *)image selectedImage:(NSString *)selectedImage{
-
+    
     viewController.title = title;
     viewController.tabBarItem.image = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     viewController.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -80,7 +83,7 @@
     NSDictionary * selectedAtts = @{ NSForegroundColorAttributeName : [UIColor blackColor]};
     [viewController.tabBarItem setTitleTextAttributes:attsDic forState:UIControlStateNormal];
     [viewController.tabBarItem setTitleTextAttributes:selectedAtts forState:UIControlStateSelected];
-
+    
     RootNavigationController * nav = [[RootNavigationController alloc] initWithRootViewController:viewController];
     
     [self addChildViewController:nav];

@@ -12,10 +12,10 @@
 
 #if DevelopSever
 /** 开发服务器 */
-NSString * const URL_base = @"https://www.oijiankang.com";
+NSString * const URL_base = @"";
 #elif TestSever
 /** 测试服务器 */
-NSString * const URL_base = @"http://chengdu.server.chinamedcom.com:52003";
+NSString * const URL_base = @"";
 #elif ProductSever
 /** 生产服务器 */
 NSString * const URL_base = @"";
@@ -23,9 +23,12 @@ NSString * const URL_base = @"";
 
 // =========================== 各模块接口 ============================== //
 
-#pragma mark - 登录注册
+#pragma mark - 用户管理
 
-/** 登录 */
-NSString * const URL_login = @"/appAuth/login";
-/** 注册 */
-NSString * const URL_regist = @"/appAuth/registe";
+NSString * const URL_login = @"";
+NSString * const URL_logout = @"";
+NSString * const URL_regist = @"";
+NSString * const URL_uploadIcon = @"";
+NSString * const URL_sendSMS = @"";
+NSString * const URL_updateUserInfo = @"";
+NSString * const URL_updateUserPwd = @"";

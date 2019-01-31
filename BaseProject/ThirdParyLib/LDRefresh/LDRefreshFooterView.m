@@ -48,7 +48,6 @@ const CGFloat LDRefreshFooterHeight = 60;
 - (instancetype)init {
     if (self = [super init]) {
         [self drawRefreshView];
-        
         [self initData];
     }
     return self;
@@ -89,13 +88,21 @@ const CGFloat LDRefreshFooterHeight = 60;
 }
 
 - (void)initData {
-    _loadMoreEnabled = YES;
-    _autoLoadMore = YES;
+    self.loadMoreEnabled = YES;
+    self.autoLoadMore = NO;
     
-    self.stateTextDic = @{@"normalText" : @"加载中...",
-                          @"pullingText" : @"加载中...",
-                          @"loadingText" : @"加载中..."
-                          };
+    if (self.autoLoadMore) {
+            self.stateTextDic = @{@"normalText" : @"加载中...",
+                                  @"pullingText" : @"加载中...",
+                                  @"loadingText" : @"加载中..."
+                                  };
+    }else{
+        self.stateTextDic = @{@"normalText" : @"上拉加载",
+                              @"pullingText" : @"释放加载",
+                              @"loadingText" : @"加载中..."
+                              };
+    }
+
     
     self.refreshState = LDRefreshStateNormal;
 }
@@ -215,7 +222,6 @@ const CGFloat LDRefreshFooterHeight = 60;
 
 - (void)pullingAnimation{
     _statusLab.text = self.stateTextDic[@"pullingText"];
-    
     [UIView animateWithDuration:0.3 animations:^{
         _arrowImage.transform = CGAffineTransformIdentity;
     }];
@@ -235,12 +241,13 @@ const CGFloat LDRefreshFooterHeight = 60;
 
 - (void)setAutoLoadMore:(BOOL)autoLoadMore {
     if (autoLoadMore != _autoLoadMore) {
+        
         _autoLoadMore = autoLoadMore;
         if (_autoLoadMore) {
             //autoLoadMore not need arrowImage
+            
             [_arrowImage removeFromSuperview];
             _arrowImage.image = nil;
-            
             self.stateTextDic = @{@"normalText" : @"加载中...",
                                   @"pullingText" : @"加载中...",
                                   @"loadingText" : @"加载中..."

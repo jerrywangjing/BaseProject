@@ -31,15 +31,16 @@
     
     //导航栏背景图
 
-    [navBar setBarTintColor:RGB(41, 40, 44)];    // 导航栏背景色
-    [navBar setTintColor:[UIColor whiteColor]];
-    [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName :[UIColor whiteColor], NSFontAttributeName : [UIFont systemFontOfSize:18]}];
+    [navBar setBarTintColor:[UIColor whiteColor]];    // 导航栏背景色
+    [navBar setTintColor:[UIColor blackColor]];
+    [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName :[UIColor blackColor], NSFontAttributeName : [UIFont systemFontOfSize:18 weight:UIFontWeightBold]}];
     
-    [navBar setShadowImage:[UIImage new]];  //去掉阴影线
+//    [navBar setShadowImage:[UIImage new]];  //去掉阴影线
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.popDelegate = self.interactivePopGestureRecognizer.delegate;
     self.delegate = self;
     
@@ -52,9 +53,16 @@
     
     //下面是全屏返回
     //        _popRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleNavigationTransition:)];
+    
     _popRecognizer.edges = UIRectEdgeLeft;
     [_popRecognizer setEnabled:NO];
+    
     [self.view addGestureRecognizer:_popRecognizer];
+}
+
+// 根视图禁用右划返回
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    return self.childViewControllers.count > 1 ? YES : NO;
 }
 
 //解决手势失效问题
@@ -67,11 +75,6 @@
         self.interactivePopGestureRecognizer.enabled = NO;
         [_popRecognizer setEnabled:YES];
     }
-}
-
-//根视图禁用右划返回
--(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
-    return self.childViewControllers.count == 1 ? NO : YES;
 }
 
 //push时隐藏tabbar
@@ -87,10 +90,10 @@
     }
     [super pushViewController:viewController animated:animated];
     
-    // 修改tabBar的frame
-    CGRect frame = self.tabBarController.tabBar.frame;
-    frame.origin.y = [UIScreen mainScreen].bounds.size.height - frame.size.height;
-    self.tabBarController.tabBar.frame = frame;
+//    // 修改tabBar的frame
+//    CGRect frame = self.tabBarController.tabBar.frame;
+//    frame.origin.y = [UIScreen mainScreen].bounds.size.height - frame.size.height;
+//    self.tabBarController.tabBar.frame = frame;
 }
 
 -(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
@@ -125,6 +128,7 @@
     return NO;
 }
 
+
 /*!
  *  获得当前导航器显示的视图
  *
@@ -148,19 +152,20 @@
     return nil;
 }
 
-
+// 实现此方法，可让控制器单独控制系统“状态栏”样式
 -(UIViewController *)childViewControllerForStatusBarStyle{
     return self.topViewController;
 }
+
 
 #pragma mark ————— 转场动画区 —————
 
 //navigation切换是会走这个代理
 
--(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC
+-(id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController<XYTransitionProtocol> *)fromVC toViewController:(UIViewController<XYTransitionProtocol> *)toVC
 {
     self.isSystemSlidBack = YES;
-    //如果来源VC和目标VC都实现协议，那么都做动画
+    // 如果来源VC和目标VC都实现协议，那么都做动画
     if ([fromVC conformsToProtocol:@protocol(XYTransitionProtocol)] && [toVC conformsToProtocol:@protocol(XYTransitionProtocol)]) {
         
         BOOL pinterestNedd = [self isNeedTransition:fromVC:toVC];

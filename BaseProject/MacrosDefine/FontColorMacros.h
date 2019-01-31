@@ -12,8 +12,26 @@
 // notes : 在这里插入项目的主题颜色，字体等相关定义
 // 例如： BgColor  [UIColor WhiteColor]
 
+// 主题色
 
-#define ThemeColor [UIColor colorWithRed:34/255.0f green:151/255.0f blue:254/255.0f alpha:1.0f]
+#define WJColorBlue         HexRGB(0x1999e3)
+#define WJColorBlack        HexRGB(0x343a3d)
+#define WJColorGray         HexRGB(0x6d7479)
+#define WJColorLightGray    HexRGB(0xc6cdd1)
+#define WJColorBackground   HexRGB(0xf0f2f4)
+#define WJColorSeparatorLine    HexRGB(0xc6cdd1)
+
+#define WJFontColorTitle    HexRGB(0x343a3d)
+#define WJFontColorSubtitle HexRGB(0x6d7479)
+#define WJSeparatorLine    HexRGB(0xc6cdd1)
+
+
+// 字体
+
+#define WJFontSize_14   [UIFont systemFontOfSize:14]
+#define WJFontSize_12   [UIFont systemFontOfSize:12]
+#define WJFontSize_16   [UIFont systemFontOfSize:16]
+#define WJFontSize_18   [UIFont systemFontOfSize:18]
 
 
 #endif /* FontColorMacros_h */

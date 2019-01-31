@@ -11,4 +11,5 @@
 
 NSString * const kAccount = @"account";
 
-NSNotificationName const kOpenLeftSlideViewNotification = @"notificationName";
+NSNotificationName const WJNetWorkDidNotReachableNotification = @"WJNetWorkDidNotReachableNotification";
+NSNotificationName const WJNetWorkDidReachableNotification = @"WJNetWorkDidReachableNotification";

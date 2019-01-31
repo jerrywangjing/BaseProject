@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^NewFeatureStartBlock)();
+
 @interface NewFeatureViewController : UIViewController
+@property (nonatomic,copy) NewFeatureStartBlock didStartApp;
 
 @end

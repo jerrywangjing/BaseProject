@@ -11,7 +11,8 @@
 
 #define WJRGBColor(R,G,B)  [UIColor colorWithRed:(R)/255.0f green:(G)/255.0f blue:(B)/255.0f alpha:1.0f]
 
-static CGFloat const NAVI_HEIGHT = 64;
+#define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#define NAVI_HEIGHT (iPhoneX ? 88.f : 64.f)
 
 @interface BaseWebViewController ()<UIWebViewDelegate,WKNavigationDelegate,WKUIDelegate,UIGestureRecognizerDelegate>
 
@@ -23,9 +24,9 @@ static CGFloat const NAVI_HEIGHT = 64;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) UIProgressView *loadingProgressView;
 @property (nonatomic, strong) UIButton *reloadButton;
+@property (nonatomic,strong) UIActivityIndicatorView *indicatorView;
 
-@property (nonatomic,strong) NSURL *url;
-@property (nonatomic,strong) WebViewJavascriptBridge *bridge;   // 桥接对象
+@property (nonatomic,strong) WKWebViewJavascriptBridge *bridge;   // 桥接对象
 
 @end
 
@@ -34,6 +35,7 @@ static CGFloat const NAVI_HEIGHT = 64;
 - (instancetype)initWithUrl:(NSURL *)url{
     if (self = [super initWithNibName:nil bundle:nil]) {
         _url = url;
+        _isShowProgressBar = YES;
     }
     return self;
 }
@@ -41,14 +43,37 @@ static CGFloat const NAVI_HEIGHT = 64;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (CGRectEqualToRect(_webViewFrame, CGRectZero) || CGRectEqualToRect(_webViewFrame, CGRectNull)) {
+        
+        CGFloat y = self.navigationController ? NavBarH : 0;
+        
+        CGFloat height = self.navigationController.viewControllers.count > 1 ? self.view.bounds.size.height - y : self.view.bounds.size.height-y-TabBarH;
+        _webViewFrame = CGRectMake(0, y, self.view.bounds.size.width,height);
+    }
+    
     [self createWebView];
     [self createNaviItem];
     [self createJSBridge]; // 设置桥接库
     
-    // 加载web请求
+    [self setupAndShowIndicatorView];
     
+    // 加载web请求
     [self loadRequest];
     
+}
+
+- (void)setupAndShowIndicatorView{
+    
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    _indicatorView = indicator;
+    [self.view addSubview:indicator];
+    [self.view bringSubviewToFront:indicator];
+    [indicator mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+    }];
+    
+    // start
+    [indicator startAnimating];
 }
 
 #pragma mark 版本适配
@@ -60,7 +85,9 @@ static CGFloat const NAVI_HEIGHT = 64;
     
     if ([[[UIDevice currentDevice]systemVersion] floatValue] >= 8.0) {
         [self.view addSubview:self.wk_WebView];
-        [self.view addSubview:self.loadingProgressView];
+        if (_isShowProgressBar) {
+            [self.view addSubview:self.loadingProgressView];
+        }
     } else {
         [self.view addSubview:self.webView];
     }
@@ -68,10 +95,14 @@ static CGFloat const NAVI_HEIGHT = 64;
 
 - (UIWebView*)webView {
     if (!_webView) {
-        _webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, NAVI_HEIGHT, self.view.bounds.size.width, self.view.bounds.size.height - NAVI_HEIGHT)];
+        _webView = [[UIWebView alloc]initWithFrame:_webViewFrame];
         _webView.delegate = self;
         if ([[[UIDevice currentDevice]systemVersion]floatValue] >= 10.0 && _canPullRefresh) {
-            _webView.scrollView.refreshControl = self.refreshControl;
+            if (@available(iOS 10.0, *)) {
+                _webView.scrollView.refreshControl = self.refreshControl;
+            } else {
+                // Fallback on earlier versions
+            };
         }
     }
     return _webView;
@@ -82,17 +113,31 @@ static CGFloat const NAVI_HEIGHT = 64;
         WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc]init];
         config.preferences = [[WKPreferences alloc]init];
         config.userContentController = [[WKUserContentController alloc]init];
-        _wk_WebView = [[WKWebView alloc]initWithFrame:CGRectMake(0, NAVI_HEIGHT, self.view.bounds.size.width, self.view.bounds.size.height - NAVI_HEIGHT) configuration:config];
+        _wk_WebView = [[WKWebView alloc]initWithFrame:_webViewFrame configuration:config];
         _wk_WebView.navigationDelegate = self;
         _wk_WebView.UIDelegate = self;
         //添加此属性可触发侧滑返回上一网页与下一网页操作
         _wk_WebView.allowsBackForwardNavigationGestures = YES;
         //下拉刷新
         if ([[[UIDevice currentDevice]systemVersion]floatValue] >= 10.0 && _canPullRefresh) {
-            _wk_WebView.scrollView.refreshControl = self.refreshControl;
+            if (@available(iOS 10.0, *)) {
+                _wk_WebView.scrollView.refreshControl = self.refreshControl;
+            } else {
+                // Fallback on earlier versions
+            }
         }
         //进度监听
         [_wk_WebView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
+        
+        // 添加代理标识
+        
+        NSString *bundleId = [[NSBundle mainBundle] bundleIdentifier];
+        NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
+        NSString *version = infoDic[@"CFBundleShortVersionString"];
+        
+        // Native_iOS Native_BundleId:xxx Native_V1.0
+        
+        _wk_WebView.customUserAgent = [NSString stringWithFormat:@"iphone Native_iOS Native_BundleId:%@ Native_V%@",bundleId,version];
     }
     return _wk_WebView;
 }
@@ -136,9 +181,9 @@ static CGFloat const NAVI_HEIGHT = 64;
 - (UIProgressView*)loadingProgressView {
     if (!_loadingProgressView) {
         _loadingProgressView = [[UIProgressView alloc]initWithFrame:CGRectMake(0, NAVI_HEIGHT, self.view.bounds.size.width, 2)];
-        _loadingProgressView.progressViewStyle = UIProgressViewStyleBar;//进度条的宽度是根据样式来变化的，设置width无效
-        _loadingProgressView.progressTintColor = WJRGBColor(0, 190, 17); // 进度值背景颜色
-        _loadingProgressView.trackTintColor = [UIColor clearColor]; // 进度条背景颜色
+        _loadingProgressView.progressViewStyle = UIProgressViewStyleBar;    //进度条的宽度是根据样式来变化的，设置width无效
+        _loadingProgressView.progressTintColor = WJRGBColor(0, 190, 17);    // 进度值背景颜色
+        _loadingProgressView.trackTintColor = [UIColor clearColor];         // 进度条背景颜色
     }
     return _loadingProgressView;
 }
@@ -162,10 +207,10 @@ static CGFloat const NAVI_HEIGHT = 64;
         _reloadButton.frame = CGRectMake(0, 0, 50, 50);
         _reloadButton.center = self.view.center;
         
-        [_reloadButton setBackgroundImage:[UIImage imageNamed:@"sure_placeholder_error"] forState:UIControlStateNormal];
-        [_reloadButton setTitle:@"您的网络有问题，请检查您的网络设置" forState:UIControlStateNormal];
+        [_reloadButton setBackgroundImage:[UIImage imageNamed:@"no_network_icon"] forState:UIControlStateNormal];
+        [_reloadButton setTitle:@"网页地址或网络异常，请进行相关检查" forState:UIControlStateNormal];
         [_reloadButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-        [_reloadButton setTitleEdgeInsets:UIEdgeInsetsMake(200, -50, 0, -50)];
+        [_reloadButton setTitleEdgeInsets:UIEdgeInsetsMake(130, -50, 0, -50)];
         _reloadButton.titleLabel.font = [UIFont systemFontOfSize:15];
         _reloadButton.titleLabel.numberOfLines = 0;
         _reloadButton.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -177,19 +222,32 @@ static CGFloat const NAVI_HEIGHT = 64;
     return _reloadButton;
 }
 
+- (UIActivityIndicatorView *)indicatorView{
+    if (!_indicatorView) {
+        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        _indicatorView = indicator;
+        indicator.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
+        [self.view addSubview:indicator];
+        //        [indicator mas_makeConstraints:^(MASConstraintMaker *make) {
+        //            make.center.equalTo(self.view);
+        //        }];
+    }
+    return _indicatorView;
+}
+
 #pragma mark 导航按钮
 - (void)createNaviItem {
+    
     [self showLeftBarButtonItem];
     [self showRightBarButtonItem];
 }
 
 - (void)showLeftBarButtonItem {
     
-    if ([_webView canGoBack] || [_wk_WebView canGoBack]) {
-        self.navigationItem.leftBarButtonItems = @[self.backBarButtonItem,self.closeBarButtonItem];
-        
-    } else {
+    if ([_webView canGoBack] || [_wk_WebView canGoBack] || self.navigationController.viewControllers.count > 1) {
         self.navigationItem.leftBarButtonItem = self.backBarButtonItem;
+    } else {
+        self.navigationItem.leftBarButtonItem = nil;
     }
 }
 
@@ -200,7 +258,7 @@ static CGFloat const NAVI_HEIGHT = 64;
 - (UIBarButtonItem*)backBarButtonItem {
     if (!_backBarButtonItem) {
         
-        _backBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"navi_back"]style:UIBarButtonItemStylePlain target:self action:@selector(back:)];
+        _backBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"navbar_back"]style:UIBarButtonItemStylePlain target:self action:@selector(back:)];
     }
     return _backBarButtonItem;
 }
@@ -235,11 +293,14 @@ static CGFloat const NAVI_HEIGHT = 64;
         self.delegate = self.navigationController.interactivePopGestureRecognizer.delegate;
         self.navigationController.interactivePopGestureRecognizer.delegate = self;
     }
+    if (self.navigationController.navigationBar.isHidden) {
+        [self.navigationController setNavigationBarHidden:NO];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-
+    
     self.navigationController.interactivePopGestureRecognizer.delegate = self.delegate;
 }
 
@@ -254,10 +315,12 @@ static CGFloat const NAVI_HEIGHT = 64;
 #pragma mark 加载请求
 - (void)loadRequest {
     
+    NSURLRequest *request = [NSURLRequest requestWithURL:_url];
+    
     if ([[[UIDevice currentDevice]systemVersion]floatValue] >= 8.0) {
-        [_wk_WebView loadRequest:[NSURLRequest requestWithURL:_url]];
+        [_wk_WebView loadRequest:request];
     } else {
-        [_webView loadRequest:[NSURLRequest requestWithURL:_url]];
+        [_webView loadRequest:request];
     }
 }
 
@@ -265,10 +328,59 @@ static CGFloat const NAVI_HEIGHT = 64;
 
 - (void)createJSBridge{
     
-    _bridge = [WebViewJavascriptBridge bridgeForWebView:self.wk_WebView ?: self.webView];
-    [WebViewJavascriptBridge enableLogging];
+    _bridge = [WKWebViewJavascriptBridge bridgeForWebView:self.wk_WebView];
+    [WKWebViewJavascriptBridge enableLogging];
     [_bridge setWebViewDelegate:self];
+    
+    
+    // 注册js方法
+    // 测试js方法： jumpToNativeKlineVc
+    
+    [self.bridge registerHandler:@"jumpToNativeKlineVc" handler:^(id data, WVJBResponseCallback responseCallback) {
+        
+        NSLog(@"js response kline: %@", data);
+        [self jumpToXxxVCWithParams:data];
+        if (responseCallback) { // 反馈给JS
+            responseCallback(@{@"state": @"200"});
+        }
+    }];
 }
+
+// 子类实现具体功能逻辑
+
+- (void)jumpToXxxVCWithParams:(NSDictionary *)data{
+    NSLog(@"base jump kline");
+    
+    
+    // 测试 买入，卖出 逻辑
+    
+    //    CGCoinInfoModel *coinInfo = [CGCoinInfoModel new];
+    //    coinInfo.coinName = @"btc_usdt";
+    //    coinInfo.coinDisplayName = @"BTC/USDT";
+    //
+    //    WeakSelf(weakSelf);
+    //
+    //    KLineVC *kline = [[KLineVC alloc] init];
+    //    kline.coinInfo = coinInfo;
+    //    kline.didClickBuyBtn = ^(NSString *coinName) {
+    //
+    //        NSLog(@"buy click:%@",coinName);
+    //        [weakSelf.bridge callHandler:@"clickBuy" data:@{@"coinName" : @"btc_usdt"} responseCallback:^(id responseData) {
+    //            NSLog(@"buy 返回：%@",responseData);
+    //        }];
+    //    };
+    //    kline.didClickSellBtn = ^(NSString *coinName) {
+    //
+    //        NSLog(@"sell click:%@",coinName);
+    //        [weakSelf.bridge callHandler:@"clickSell" data:@{@"coinName" : @"btc_usdt"} responseCallback:^(id responseData) {
+    //            NSLog(@"sell 返回：%@",responseData);
+    //        }];
+    //    };
+    //
+    //    RootNavigationController *nav = [[RootNavigationController alloc] initWithRootViewController:kline];
+    //    [self presentViewController:nav animated:YES completion:nil];
+}
+
 
 #pragma mark WebViewDelegate
 
@@ -287,10 +399,13 @@ static CGFloat const NAVI_HEIGHT = 64;
     self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     [self showLeftBarButtonItem];
     [_refreshControl endRefreshing];
+    
+    [self.indicatorView stopAnimating];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     webView.hidden = YES;
+    [self.indicatorView stopAnimating];
 }
 
 #pragma mark WKNavigationDelegate
@@ -310,24 +425,27 @@ static CGFloat const NAVI_HEIGHT = 64;
 }
 
 //页面加载完成
+
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation{
+    
     // 设置导航栏标题
     [webView evaluateJavaScript:@"document.title" completionHandler:^(id _Nullable title, NSError * _Nullable error) {
         self.navigationItem.title = title;
     }];
     
-    // 调用js方法传值
-    // ** 使用webviewJsBridge 来处理交互
-    
     // 更新网络状态
     [self showLeftBarButtonItem];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [_refreshControl endRefreshing];
+    
+    [self.indicatorView stopAnimating];
 }
 
 //页面加载失败
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error{
+    
     webView.hidden = YES;
+    [self.indicatorView stopAnimating];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
@@ -387,5 +505,4 @@ static CGFloat const NAVI_HEIGHT = 64;
     
     [self presentViewController:alertController animated:YES completion:nil];
 }
-
 @end

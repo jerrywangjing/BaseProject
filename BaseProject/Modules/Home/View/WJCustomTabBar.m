@@ -18,6 +18,7 @@
 - (instancetype)init{
     if (self = [super init]) {
         self.delegate = self;
+        
         [self setupCustomView];
     }
     return self;
@@ -30,8 +31,7 @@
     UIButton *centerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _centerBtn = centerBtn;
     
-    [centerBtn setImage:[UIImage imageNamed:@"icon_boy"] forState:UIControlStateNormal];
-    [centerBtn setImage:[UIImage imageNamed:@"icon_boy"] forState:UIControlStateHighlighted];
+    [centerBtn setImage:[UIImage imageNamed:@"add_tabbar_icon"] forState:UIControlStateNormal];
     centerBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     [self addSubview:centerBtn];
@@ -52,15 +52,15 @@
     
     CGFloat barWidth = self.bounds.size.width;
     CGFloat barHeight = self.bounds.size.height;
-    CGFloat centerBtnWidth = barWidth / (tabBarButtonArray.count + 1);
-    CGFloat centerBtnHeight = barHeight;
     
     // 设置中间按钮的位置，及偏移量
     
-    CGFloat offsetY = 0;
+    CGFloat offsetY = 3;
+    CGFloat centerBtnWidth = barWidth / (tabBarButtonArray.count + 1);
+    CGFloat centerBtnHeight = 44;
     
-    self.centerBtn.frame = CGRectMake(0, 0, centerBtnWidth, centerBtnHeight);
-    self.centerBtn.center = CGPointMake(barWidth/2, barHeight/2 + offsetY);
+    self.centerBtn.frame = CGRectMake(0, offsetY, centerBtnWidth, centerBtnHeight);
+    self.centerBtn.centerX = barWidth/2;
 
     // 重新布局其他 tabBarItem
     // 平均分配其他 tabBarItem 的宽度
@@ -71,16 +71,39 @@
     [tabBarButtonArray enumerateObjectsUsingBlock:^(UIView *  _Nonnull view, NSUInteger idx, BOOL * _Nonnull stop) {
         
         CGRect frame = view.frame;
+        
         if (idx >= tabBarButtonArray.count / 2) {
             // 重新设置 x 坐标，如果排在中间按钮的右边需要加上中间按钮的宽度
             frame.origin.x = idx * barItemWidth + centerBtnWidth;
         } else {
             frame.origin.x = idx * barItemWidth;
         }
+        
+        frame.origin.y -= 2;    // 微调item，向上偏移2个点
+        
         // 重新设置宽度
         frame.size.width = barItemWidth;
         view.frame = frame;
     }];
+}
+
+// 重写系统的hitTest方法，解决按钮突出部分无法响应点击事件的问题
+
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    
+    if (self.isHidden == NO) { // 当前界面 tabBar显示
+        
+        CGPoint newPoint = [self convertPoint:point toView:self.centerBtn];
+        
+        if ([self.centerBtn pointInside:newPoint withEvent:event]) { // 点 属于按钮范围
+            return self.centerBtn;
+        }else{
+            return [super hitTest:point withEvent:event];
+        }
+    }
+    else {
+        return [super hitTest:point withEvent:event];
+    }
 }
 
 #pragma mark - action

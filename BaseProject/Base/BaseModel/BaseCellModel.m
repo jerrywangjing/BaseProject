@@ -10,8 +10,14 @@
 
 @implementation BaseCellModel
 
-- (CGFloat)cellHeight{
-    return 44;
+- (instancetype)init{
+    if (self = [super init]) {
+        // 设置全局cell默认值
+        
+        _cellHeight = 44;
+        _selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return self;
 }
 
 @end
