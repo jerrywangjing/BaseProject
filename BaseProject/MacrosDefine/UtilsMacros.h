@@ -24,7 +24,6 @@
 #define HEIGHT_RATE (kScreenHeight/667)
 
 // iPhoneX 适配相关代码
-
 #define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
 // 状态栏高度

@@ -33,9 +33,12 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     
     if (self = [super initWithFrame:frame]) {
+        
         self.backgroundColor = [UIColor clearColor];
+        
         [self initData];
         [self initSubviews];
+        
         // 设置初始默认值
         self.allowDismissByTapBackgroudView = YES;
 //        self.datePikerMode = UIDatePickerModeDate;
@@ -121,7 +124,6 @@
         make.top.equalTo(tipLabel);
     }];
 }
-
 
 #pragma mark - action
 

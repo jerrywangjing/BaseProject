@@ -1,5 +1,5 @@
 //
-//  HMBaseTableViewCell.m
+//  BaseTableViewCell.m
 //  BaseProject
 //
 //  Created by JerryWang on 2017/11/8.

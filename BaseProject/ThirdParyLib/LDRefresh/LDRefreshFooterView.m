@@ -70,7 +70,7 @@ const CGFloat LDRefreshFooterHeight = 60;
     });
 
     self.arrowImage = ({
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tableview_pull_refresh"]];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LDRefresh.bundle/tableview_pull_refresh"]];
         imageView.frame        = CGRectMake(ScreenWidth/2.0 - 60,(LDRefreshFooterHeight-32)/2.0, 32, 32);
         [self addSubview:imageView];
         

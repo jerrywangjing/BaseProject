@@ -12,7 +12,6 @@ pod 'AFNetworking'          # 网络库
 pod 'SDWebImage'            # 图片加载库
 
 pod 'Masonry'               # 约束布局库
-pod 'SDAutoLayout'
 pod 'DateTools'             # 日期工具库
 
 pod 'DZNEmptyDataSet'       # scrollView 空数据提示控件
@@ -30,7 +29,7 @@ pod 'IQKeyboardManager'     # 键盘弹出管理控件
 #pod 'zhPopupController'            # 功能强大的弹出视图 (可自定义)
 
 pod 'WebViewJavascriptBridge'       # js交互框架
-pod 'CocoaAsyncSocket'              # gcdSocket
+pod 'CocoaAsyncSocket'              # GCDSocket
 pod 'SocketRocket'                  # webSocket
 #pod 'CoreBitcoin'                   # 比特币开发工具包
 

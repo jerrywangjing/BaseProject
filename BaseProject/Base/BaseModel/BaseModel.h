@@ -1,9 +1,8 @@
 //
-//  HMBaseModel.h
-//  everyoneIsHealthy
+//  BaseModel.h
 //
 //  Created by JerryWang on 2017/8/30.
-//  Copyright © 2017年 华美医信. All rights reserved.
+//  Copyright © 2017年 Jerry. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

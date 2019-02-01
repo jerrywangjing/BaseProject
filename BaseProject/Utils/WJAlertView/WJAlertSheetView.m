@@ -141,7 +141,7 @@ typedef NS_ENUM(NSUInteger, WJSheetStyle) {
         [item setTitle:_items[i] forState:UIControlStateNormal];
         [item setBackgroundImage:[UIImage createImageWithColor:[UIColor colorWithWhite:1.0 alpha:1.0]] forState:UIControlStateNormal];
         [item setBackgroundImage:[UIImage createImageWithColor:[UIColor colorWithWhite:1.0 alpha:0.5]] forState:UIControlStateHighlighted];
-        [item setBackgroundImage:[UIImage imageNamed:@"mutilSheet_selected_bg"] forState:UIControlStateSelected];
+        [item setBackgroundImage:[UIImage imageNamed:@"WJAlertView.bundle/mutilSheet_selected_bg"] forState:UIControlStateSelected];
         item.adjustsImageWhenHighlighted = NO;
         [item setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         

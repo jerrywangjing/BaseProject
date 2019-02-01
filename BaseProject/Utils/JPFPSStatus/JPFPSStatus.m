@@ -8,8 +8,11 @@
 
 #import "JPFPSStatus.h"
 
-#define WJRGBAColor(r,g,b,a)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:(a)]
+#define kFPS_RGBA(r,g,b,a)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:(a)]
 
+#define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define kFPS_NavBarH (iPhoneX ? 88.f : 64.f)
 
 @interface JPFPSStatus (){
     CADisplayLink *displayLink;
@@ -56,10 +59,9 @@
         [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
         
         // fpsLabel
-        fpsLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 5, 50, 20)];
+        fpsLabel = [[UILabel alloc] initWithFrame:CGRectMake(50,kFPS_NavBarH-30, 50, 20)];
         fpsLabel.font=[UIFont boldSystemFontOfSize:12];
-        fpsLabel.textColor=WJRGBAColor(69, 188, 61,1);
-        fpsLabel.backgroundColor=[UIColor colorWithWhite:0.000 alpha:0.700];
+        fpsLabel.backgroundColor=[UIColor colorWithWhite:0 alpha:0.7];
         fpsLabel.textAlignment=NSTextAlignmentCenter;
         fpsLabel.layer.cornerRadius = 5;
         fpsLabel.layer.masksToBounds = YES;
@@ -86,7 +88,7 @@
     [fpsLabel setText: text];
     
     if (fps >= 55 && fps <= 60) {
-        [fpsLabel setTextColor:WJRGBAColor(69, 188, 61, 1)];
+        [fpsLabel setTextColor:kFPS_RGBA(69, 188, 61,1.f)];
     }else if (fps >= 50 && fps <= 55){
         [fpsLabel setTextColor:[UIColor orangeColor]];
     }else{

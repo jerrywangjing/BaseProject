@@ -10,8 +10,8 @@
 #import "UITabBar+CustomBadge.h"
 #import "WJCustomTabBar.h"
 #import "RootNavigationController.h"
-#import "ProfileViewController.h"
-#import "HomeViewController.h"
+#import "WJProfileViewController.h"
+#import "WJHomeViewController.h"
 
 @interface MainTabBarController ()<WJCustomTabBarDelegate>
 
@@ -55,12 +55,12 @@
 
 - (void)addChildViewControllers{
     
-    [self setTabBarViewControllers:[HomeViewController new] barItemTitle:@"首页" barItemImage:@"icon_home_nor" selectedImage:@"icon_home_hlt"];
+    [self setTabBarViewControllers:[WJHomeViewController new] barItemTitle:@"首页" barItemImage:@"icon_home_nor" selectedImage:@"icon_home_hlt"];
     
-    [self setTabBarViewControllers:[ProfileViewController new] barItemTitle:@"测试1" barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
+    [self setTabBarViewControllers:[WJProfileViewController new] barItemTitle:@"测试1" barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
     
-    [self setTabBarViewControllers:[ProfileViewController new] barItemTitle:@"测试2" barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
-    [self setTabBarViewControllers:[ProfileViewController new] barItemTitle:@"测试3" barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
+    [self setTabBarViewControllers:[WJProfileViewController new] barItemTitle:@"测试2" barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
+    [self setTabBarViewControllers:[WJProfileViewController new] barItemTitle:@"我的" barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
     
 }
 

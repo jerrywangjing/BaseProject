@@ -10,6 +10,8 @@
 
 const NSInteger hideTime = 1.5;
 
+
+
 @implementation MBProgressHUD (XY)
 
 + (MBProgressHUD*)createMBProgressHUDviewWithMessage:(NSString*)message isWindiw:(BOOL)isWindow
@@ -144,7 +146,9 @@ const NSInteger hideTime = 1.5;
 + (void)showCustomIcon:(NSString *)iconName message:(NSString *)message isWindow:(BOOL)isWindow completion:(void(^)())completion
 {
     MBProgressHUD *hud  =  [self createMBProgressHUDviewWithMessage:message isWindiw:isWindow];
-    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:iconName]];
+    
+    NSString *iconPath = [@"MBProgressHUD.bundle" stringByAppendingPathComponent:iconName];
+    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:iconPath]];
     hud.mode = MBProgressHUDModeCustomView;
     hud.userInteractionEnabled = isWindow?YES:NO;
     [hud hideAnimated:YES afterDelay:hideTime];
@@ -156,9 +160,10 @@ const NSInteger hideTime = 1.5;
 }
 
 + (void)hideHUD{
-    UIView  *winView =(UIView*)[UIApplication sharedApplication].delegate.window;
-    [self hideAllHUDsForView:winView animated:YES];
-    [self hideAllHUDsForView:[kWJAppManager getCurrentUIVC].view animated:YES];
+    
+    UIView  *winView = [UIApplication sharedApplication].delegate.window;
+    [self hideHUDForView:winView animated:YES];
+    [self hideHUDForView:[kWJAppManager getCurrentUIVC].view animated:YES];
 }
 
 #pragma mark ————— 顶部tip —————

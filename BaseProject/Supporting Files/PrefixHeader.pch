@@ -36,7 +36,6 @@
 #import <YYCache.h>
 #import <IQKeyboardManager.h>
 #import <Masonry.h>
-#import <SDAutoLayout.h>
 #import <DateTools.h>
 #import "PPNetworkHelper.h"
 
