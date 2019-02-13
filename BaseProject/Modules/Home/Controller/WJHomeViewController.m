@@ -12,6 +12,7 @@
 #import "WJSysDatePickerView.h"
 #import "WJPopView.h"
 #import "WJProfileViewController.h"
+#import "WJLoginViewController.h"
 
 typedef NS_ENUM(NSUInteger, ShowViewType) {
     ShowViewTypeAlertSheetView,
@@ -22,9 +23,15 @@ typedef NS_ENUM(NSUInteger, ShowViewType) {
     ShowViewTypeTest
 };
 
+typedef void(^NeedEndLoadMore)(BOOL noMoreData);
+typedef void(^NeedEndRefresh)();
+
 @interface WJHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) NSArray *dataSource;
+
+@property (nonatomic,copy) NeedEndLoadMore endLoadMore;
+@property (nonatomic,copy) NeedEndRefresh endRefresh;
 
 @end
 
@@ -39,7 +46,9 @@ typedef NS_ENUM(NSUInteger, ShowViewType) {
 }
 
 - (void)configNavbar{
-    [self addNavigationItemWithTitles:@[@"测试"] isLeft:NO target:self action:@selector(rightNavClick) tags:nil];
+    UIBarButtonItem *login_btn_navbar = [self creatNavbarItemWithTitle:@"登录" target:self action:@selector(loginBtnClick)];
+    self.navigationItem.rightBarButtonItem = login_btn_navbar;
+    
 }
 
 - (void)setupSubviews{
@@ -47,33 +56,67 @@ typedef NS_ENUM(NSUInteger, ShowViewType) {
     self.tableViewStyle = UITableViewStyleGrouped;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.tableFooterView = [UIView new];
+    
+    // 上拉，下拉刷新
+    WeakSelf(weakSelf);
+    
+    MJRefreshNormalHeader *refreshHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakSelf pullNewData];
+    }];
+    refreshHeader.lastUpdatedTimeLabel.hidden = YES;
+    
+    MJRefreshAutoNormalFooter *refreshFooter = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf loadMoreData];
+    }];
+    
+    self.tableView.mj_header = refreshHeader;
+    self.tableView.mj_footer = refreshFooter;
     
     [self.view addSubview:self.tableView];
 }
 
 - (void)loadData{
     _dataSource = @[@"AlertSheetView",@"AlertMultiSheetView",@"PopView",@"WebView",@"DataPickerView",@"TestBtn"];
+    
+    // ... if is refreshData call self.endRefresh(), if is loadMoreData call self.endLoadMore(BOOL), the param is defined for Whether the loading is completed.
 }
 
 #pragma mark - actions
 
-- (void)rightNavClick{
-    NSLog(@"right nav bar click");
+- (void)loginBtnClick{
+    WJLoginViewController *loginVc = [WJLoginViewController new];
+    loginVc.title = @"登录";
+    RootNavigationController *nav = [[RootNavigationController alloc] initWithRootViewController:loginVc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
-#pragma mark - 刷新
-
-- (void)headerRereshing{
+#pragma mark - 刷新、加载更多
+- (void)pullNewData{
+    WeakSelf(weakSelf);
+    self.endRefresh = ^{
+        [weakSelf.tableView.mj_footer resetNoMoreData];
+        [weakSelf.tableView.mj_header endRefreshing];;
+    };
+    
+    // ... load new data
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSLog(@"刷新数据完成");
-        [self endRefreshing];
+        self.endRefresh();
     });
 }
-- (void)footerRereshing{
+- (void)loadMoreData{
+    WeakSelf(weakSelf);
+    self.endLoadMore = ^(BOOL noMoreData) {
+        if (noMoreData) {
+            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+        }else{
+            [weakSelf.tableView.mj_footer endRefreshing];
+        }
+    };
+    
+    // ... load more data
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSLog(@"加载数据完成");
-        [self endRefreshing];
+        self.endLoadMore(YES);
     });
 }
 

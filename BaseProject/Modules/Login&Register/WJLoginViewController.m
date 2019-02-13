@@ -55,7 +55,7 @@
 }
 
 - (void)conifgNavbar{
-    self.isHiddenNavBar = YES;
+//    self.isHiddenNavBar = YES;
 }
 
 - (void)setupSubviews{

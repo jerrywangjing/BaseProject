@@ -64,6 +64,10 @@
 		C44686681EDD0AE9000A57F8 /* AppDelegate+AppService.m in Sources */ = {isa = PBXBuildFile; fileRef = C44686671EDD0AE9000A57F8 /* AppDelegate+AppService.m */; };
 		C446866B1EDD0AF9000A57F8 /* AppDelegate+PushService.m in Sources */ = {isa = PBXBuildFile; fileRef = C446866A1EDD0AF9000A57F8 /* AppDelegate+PushService.m */; };
 		C446866E1EDD0B96000A57F8 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C446866D1EDD0B96000A57F8 /* RootViewController.m */; };
+		C49132B12212728700C4A513 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C49132B32212728700C4A513 /* InfoPlist.strings */; };
+		C49132B8221273B100C4A513 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C49132BA221273B100C4A513 /* Localizable.strings */; };
+		C49132BF2212AEAE00C4A513 /* FCFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C49132BD2212AEAE00C4A513 /* FCFileManager.m */; };
+		C49132C62213AACD00C4A513 /* SocketRocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C49132C42213AACC00C4A513 /* SocketRocketManager.m */; };
 		C4BCAB2C220179BB004393EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4BCAB28220179BB004393EC /* Assets.xcassets */; };
 		C4BCAB2D220179BB004393EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BCAB29220179BB004393EC /* main.m */; };
 		C4BCAB31220179E2004393EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BCAB30220179E2004393EC /* AppDelegate.m */; };
@@ -315,6 +319,15 @@
 		C446866A1EDD0AF9000A57F8 /* AppDelegate+PushService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+PushService.m"; sourceTree = "<group>"; };
 		C446866C1EDD0B96000A57F8 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		C446866D1EDD0B96000A57F8 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		C49132B22212728700C4A513 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C49132B4221272AA00C4A513 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		C49132B5221272AF00C4A513 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		C49132B9221273B100C4A513 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C49132BC221273B600C4A513 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		C49132BD2212AEAE00C4A513 /* FCFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCFileManager.m; sourceTree = "<group>"; };
+		C49132BE2212AEAE00C4A513 /* FCFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCFileManager.h; sourceTree = "<group>"; };
+		C49132C42213AACC00C4A513 /* SocketRocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketManager.m; sourceTree = "<group>"; };
+		C49132C52213AACC00C4A513 /* SocketRocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocketManager.h; sourceTree = "<group>"; };
 		C4BCAB28220179BB004393EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4BCAB29220179BB004393EC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C4BCAB2A220179BB004393EC /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -621,7 +634,7 @@
 				C4225F58206B794A008532B9 /* Controller */,
 				C4412CB220C39BDE0073E6D1 /* Model */,
 				863F5E7F20C68DAC00D37C68 /* View */,
-				C4412CB120C39BDE0073E6D1 /* Service */,
+				C4412CB120C39BDE0073E6D1 /* DataService */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -794,14 +807,14 @@
 			path = WebSocket;
 			sourceTree = "<group>";
 		};
-		C4412CB120C39BDE0073E6D1 /* Service */ = {
+		C4412CB120C39BDE0073E6D1 /* DataService */ = {
 			isa = PBXGroup;
 			children = (
 				C4E7456A20CCDCC600C890CF /* README.md */,
 				C4E7456E20CCE26C00C890CF /* APIRequest.h */,
 				C4E7456F20CCE26C00C890CF /* APIRequest.m */,
 			);
-			path = Service;
+			path = DataService;
 			sourceTree = "<group>";
 		};
 		C4412CB220C39BDE0073E6D1 /* Model */ = {
@@ -892,7 +905,8 @@
 		C44685B31EDBBD76000A57F8 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				C4BCABB82202C55D004393EC /* WJApp&UserManager */,
+				C4BCABB82202C55D004393EC /* WJAppManager */,
+				C49132C02212AEE500C4A513 /* WJUserManager */,
 				C4BCABF02202FB7E004393EC /* WJGCDSocketManager */,
 				C4BCABF12202FB96004393EC /* WJWebSocketManager */,
 				C4BCABEF2202FB6B004393EC /* WJFileManager */,
@@ -1025,6 +1039,17 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		C49132C02212AEE500C4A513 /* WJUserManager */ = {
+			isa = PBXGroup;
+			children = (
+				C4BCABBC2202C591004393EC /* WJUserManager.h */,
+				C4BCABBD2202C591004393EC /* WJUserManager.m */,
+				C4BCABBF2202C5B7004393EC /* WJUserInfo.h */,
+				C4BCABC02202C5B7004393EC /* WJUserInfo.m */,
+			);
+			path = WJUserManager;
+			sourceTree = "<group>";
+		};
 		C4BCAB27220179BB004393EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1032,6 +1057,8 @@
 				C4BCAB29220179BB004393EC /* main.m */,
 				C4BCAB2A220179BB004393EC /* PrefixHeader.pch */,
 				C4BCAB2B220179BB004393EC /* Info.plist */,
+				C49132B32212728700C4A513 /* InfoPlist.strings */,
+				C49132BA221273B100C4A513 /* Localizable.strings */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -1268,17 +1295,13 @@
 			path = PPNetworkHelper;
 			sourceTree = "<group>";
 		};
-		C4BCABB82202C55D004393EC /* WJApp&UserManager */ = {
+		C4BCABB82202C55D004393EC /* WJAppManager */ = {
 			isa = PBXGroup;
 			children = (
 				C4BCABB92202C584004393EC /* WJAppManager.h */,
 				C4BCABBA2202C584004393EC /* WJAppManager.m */,
-				C4BCABBC2202C591004393EC /* WJUserManager.h */,
-				C4BCABBD2202C591004393EC /* WJUserManager.m */,
-				C4BCABBF2202C5B7004393EC /* WJUserInfo.h */,
-				C4BCABC02202C5B7004393EC /* WJUserInfo.m */,
 			);
-			path = "WJApp&UserManager";
+			path = WJAppManager;
 			sourceTree = "<group>";
 		};
 		C4BCABC52202D1BD004393EC /* View */ = {
@@ -1329,6 +1352,8 @@
 		C4BCABEF2202FB6B004393EC /* WJFileManager */ = {
 			isa = PBXGroup;
 			children = (
+				C49132BE2212AEAE00C4A513 /* FCFileManager.h */,
+				C49132BD2212AEAE00C4A513 /* FCFileManager.m */,
 			);
 			path = WJFileManager;
 			sourceTree = "<group>";
@@ -1343,6 +1368,8 @@
 		C4BCABF12202FB96004393EC /* WJWebSocketManager */ = {
 			isa = PBXGroup;
 			children = (
+				C49132C52213AACC00C4A513 /* SocketRocketManager.h */,
+				C49132C42213AACC00C4A513 /* SocketRocketManager.m */,
 			);
 			path = WJWebSocketManager;
 			sourceTree = "<group>";
@@ -1550,6 +1577,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = C44685691EDBBCCC000A57F8;
 			productRefGroup = C44685731EDBBCCC000A57F8 /* Products */;
@@ -1567,12 +1596,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4225FEB206DE016008532B9 /* unicode_to_hanyu_pinyin.txt in Resources */,
+				C49132B12212728700C4A513 /* InfoPlist.strings in Resources */,
 				C4E1F55C1EE68F2100CBB6C7 /* Reader-Button-N@3x.png in Resources */,
 				C4E1F5631EE68F2100CBB6C7 /* Reader-Mark-N.png in Resources */,
 				C4BCABE22202D235004393EC /* 灰色椭圆.png in Resources */,
 				C4E1F55A1EE68F2100CBB6C7 /* Reader-Button-N.png in Resources */,
 				C4E1F5621EE68F2100CBB6C7 /* Reader-Export@3x.png in Resources */,
 				C4E1F55F1EE68F2100CBB6C7 /* Reader-Email@3x.png in Resources */,
+				C49132B8221273B100C4A513 /* Localizable.strings in Resources */,
 				C4E1F56D1EE68F2100CBB6C7 /* Reader-Thumbs@2x.png in Resources */,
 				C4E1F5661EE68F2100CBB6C7 /* Reader-Mark-Y.png in Resources */,
 				C4E1F5571EE68F2100CBB6C7 /* Reader-Button-H.png in Resources */,
@@ -1716,6 +1747,7 @@
 				C4BCABE82202E8DB004393EC /* WJRegisterViewController.m in Sources */,
 				C4E1F5821EE68F2100CBB6C7 /* UIXToolbarView.m in Sources */,
 				C4E1F57D1EE68F2100CBB6C7 /* ReaderThumbsView.m in Sources */,
+				C49132C62213AACD00C4A513 /* SocketRocketManager.m in Sources */,
 				C4225FEA206DE016008532B9 /* PinyinHelper.m in Sources */,
 				C44686351EDBD970000A57F8 /* UIImage+Extension.m in Sources */,
 				C4E1F5771EE68F2100CBB6C7 /* ReaderMainToolbar.m in Sources */,
@@ -1774,6 +1806,7 @@
 				C4BCABA12201ABFA004393EC /* Y_MALine.m in Sources */,
 				C4BCABEB2202E8EF004393EC /* WJFindPasswordViewController.m in Sources */,
 				C4BCABAA2201AC59004393EC /* NSString+random.m in Sources */,
+				C49132BF2212AEAE00C4A513 /* FCFileManager.m in Sources */,
 				C4225FA2206CC994008532B9 /* WJNumberCheck.m in Sources */,
 				C4BCABD92202D235004393EC /* ZLGestureLockView.m in Sources */,
 				C4E1F5561EE68F2100CBB6C7 /* GDataXMLNode.m in Sources */,
@@ -1795,11 +1828,34 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		C49132B32212728700C4A513 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C49132B22212728700C4A513 /* en */,
+				C49132B4221272AA00C4A513 /* zh-Hans */,
+				C49132B5221272AF00C4A513 /* zh-Hant */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C49132BA221273B100C4A513 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C49132B9221273B100C4A513 /* en */,
+				C49132BC221273B600C4A513 /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		C446859D1EDBBCCC000A57F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1856,6 +1912,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1913,6 +1970,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BaseProject/Supporting Files/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1974,6 +2032,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BaseProject/Supporting Files/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

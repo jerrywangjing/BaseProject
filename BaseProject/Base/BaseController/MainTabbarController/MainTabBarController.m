@@ -55,12 +55,12 @@
 
 - (void)addChildViewControllers{
     
-    [self setTabBarViewControllers:[WJHomeViewController new] barItemTitle:@"首页" barItemImage:@"icon_home_nor" selectedImage:@"icon_home_hlt"];
+    [self setTabBarViewControllers:[WJHomeViewController new] barItemTitle:NSLocalizedString(@"首页", nil) barItemImage:@"icon_home_nor" selectedImage:@"icon_home_hlt"];
     
-    [self setTabBarViewControllers:[WJProfileViewController new] barItemTitle:@"测试1" barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
+    [self setTabBarViewControllers:[WJProfileViewController new] barItemTitle:NSLocalizedString(@"测试1", nil) barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
     
-    [self setTabBarViewControllers:[WJProfileViewController new] barItemTitle:@"测试2" barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
-    [self setTabBarViewControllers:[WJProfileViewController new] barItemTitle:@"我的" barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
+    [self setTabBarViewControllers:[WJProfileViewController new] barItemTitle:NSLocalizedString(@"测试2", nil) barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
+    [self setTabBarViewControllers:[WJProfileViewController new] barItemTitle:NSLocalizedString(@"我的", nil) barItemImage:@"icon_record_nor" selectedImage:@"icon_record_hlt"];
     
 }
 
@@ -69,7 +69,6 @@
 - (void)customTabBar:(WJCustomTabBar *)tabBar didClickCenterItem:(id)item{
     NSLog(@"centerItem click :%@",item);
 }
-
 
 #pragma mark - private
 
