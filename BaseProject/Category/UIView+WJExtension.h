@@ -37,4 +37,12 @@
 /// 获取当前view的截图
 - (UIImage *)snapshotImage;
 
+/**
+ 添加渐变层
+
+ @param startColor 起始颜色
+ @param endColor  末尾颜色
+ */
+- (void)addGradientLayerWithStartColor:(UIColor *)startColor endColor:(UIColor *)endColor;
+
 @end

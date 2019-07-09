@@ -22,7 +22,7 @@ pod 'YYText'                # YYKit text组件
 pod 'YYModel'               # YYKit json转模型库
 pod 'YYCache'
 
-pod 'IQKeyboardManager'     # 键盘弹出管理控件
+#pod  'IQKeyboardManager'     # 键盘弹出管理控件
 #pod 'IDMPhotoBrowser'              # 图片浏览器（支持拖动消失手势）
 #pod 'YBImageBrowser'               # 图片浏览器 (支持视频，GIF图，拖动消失手势)
 #pod 'ZFPlayer'                     # 强大的视频播放组件
@@ -31,15 +31,15 @@ pod 'IQKeyboardManager'     # 键盘弹出管理控件
 pod 'WebViewJavascriptBridge'       # js交互框架
 pod 'CocoaAsyncSocket'              # GCDSocket
 pod 'SocketRocket'                  # webSocket
-#pod 'CoreBitcoin'                   # 比特币开发工具包
+#pod 'CoreBitcoin'                  # 比特币开发工具包
 
 pod 'UnrarKit'                      # rar 文件解压工具
 pod 'SSZipArchive'                  # zip 文件解压工具
 #pod 'LzmaSDK-ObjC'                  # 7z 文件解压工具（需要手动导入支持ARM64架构的Framework）
 
 pod 'TXScrollLabelView'             # 公告栏滚动文字视图
-#pod 'TYCyclePagerView'             # 可修改item缩放样式的图片轮播器
-#pod 'JXCategoryView'               # --->> 强大的分类滑动视图控件，样式众多且可高度自定义 <<---
+#pod 'TYCyclePagerView'             # 强大的图片轮播器，可修改item缩放样式
+#pod 'JXCategoryView'               # -->> 强大的分类滑动视图控件，样式众多且可高度自定义 <<--
 
 pod 'SAMKeychain'                  # 钥匙串访问工具
 #pod 'FMDB'                         # sqlite 数据库操作工具

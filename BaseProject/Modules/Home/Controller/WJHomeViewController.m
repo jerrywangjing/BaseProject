@@ -13,6 +13,7 @@
 #import "WJPopView.h"
 #import "WJProfileViewController.h"
 #import "WJLoginViewController.h"
+#import "JRSwizzle.h"
 
 typedef NS_ENUM(NSUInteger, ShowViewType) {
     ShowViewTypeAlertSheetView,
@@ -37,6 +38,26 @@ typedef void(^NeedEndRefresh)();
 
 @implementation WJHomeViewController
 
++ (void)load{
+    /* Method Swizzling 测试代码 */
+    
+    // 由于只希望method swizzling 只执行一次，所以需要使用dispatch_once（）。
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSError *error = nil;
+        [WJHomeViewController jr_swizzleMethod:@selector(viewDidAppear:) withMethod:@selector(wj_viewWillAppear:) error:&error];
+    });
+    
+}
+
+//- (void)viewWillAppear:(BOOL)animated{
+//    NSLog(@"old methed invoke");
+//}
+
+- (void)wj_viewWillAppear:(BOOL)animated{
+    NSLog(@"wj method invoke");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -48,7 +69,6 @@ typedef void(^NeedEndRefresh)();
 - (void)configNavbar{
     UIBarButtonItem *login_btn_navbar = [self creatNavbarItemWithTitle:@"登录" target:self action:@selector(loginBtnClick)];
     self.navigationItem.rightBarButtonItem = login_btn_navbar;
-    
 }
 
 - (void)setupSubviews{
@@ -191,5 +211,6 @@ typedef void(^NeedEndRefresh)();
             break;
     }
 }
+
 
 @end

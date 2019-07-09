@@ -64,6 +64,8 @@
 		C44686681EDD0AE9000A57F8 /* AppDelegate+AppService.m in Sources */ = {isa = PBXBuildFile; fileRef = C44686671EDD0AE9000A57F8 /* AppDelegate+AppService.m */; };
 		C446866B1EDD0AF9000A57F8 /* AppDelegate+PushService.m in Sources */ = {isa = PBXBuildFile; fileRef = C446866A1EDD0AF9000A57F8 /* AppDelegate+PushService.m */; };
 		C446866E1EDD0B96000A57F8 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C446866D1EDD0B96000A57F8 /* RootViewController.m */; };
+		C4779EF12216B391002F2DB7 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C4779EF02216B391002F2DB7 /* libc++.tbd */; };
+		C4779F2B221E4D21002F2DB7 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = C4779F29221E4D20002F2DB7 /* JRSwizzle.m */; };
 		C49132B12212728700C4A513 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C49132B32212728700C4A513 /* InfoPlist.strings */; };
 		C49132B8221273B100C4A513 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C49132BA221273B100C4A513 /* Localizable.strings */; };
 		C49132BF2212AEAE00C4A513 /* FCFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C49132BD2212AEAE00C4A513 /* FCFileManager.m */; };
@@ -319,6 +321,10 @@
 		C446866A1EDD0AF9000A57F8 /* AppDelegate+PushService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+PushService.m"; sourceTree = "<group>"; };
 		C446866C1EDD0B96000A57F8 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		C446866D1EDD0B96000A57F8 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		C4779EEE2216B359002F2DB7 /* libUnrarKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libUnrarKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4779EF02216B391002F2DB7 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		C4779F29221E4D20002F2DB7 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
+		C4779F2A221E4D20002F2DB7 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
 		C49132B22212728700C4A513 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C49132B4221272AA00C4A513 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		C49132B5221272AF00C4A513 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -530,6 +536,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4779EF12216B391002F2DB7 /* libc++.tbd in Frameworks */,
 				C4BCAB3B22018565004393EC /* LzmaSDK_ObjC.framework in Frameworks */,
 				009BA19ED1B5769AD2599B9D /* libPods-BaseProject.a in Frameworks */,
 			);
@@ -550,6 +557,8 @@
 		84F9B281B34AF7CF414B536C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C4779EF02216B391002F2DB7 /* libc++.tbd */,
+				C4779EEE2216B359002F2DB7 /* libUnrarKit.a */,
 				C4BCAB3A22018565004393EC /* LzmaSDK_ObjC.framework */,
 				46D8EDE5E938AB1C22AEB1AC /* libPods-BaseProject.a */,
 			);
@@ -1035,6 +1044,8 @@
 				C446862F1EDBD970000A57F8 /* UIViewController+WJExtension.m */,
 				C4BCAB522201AB5A004393EC /* UIViewController+GetCurrentVC.h */,
 				C4BCAB512201AB5A004393EC /* UIViewController+GetCurrentVC.m */,
+				C4779F2A221E4D20002F2DB7 /* JRSwizzle.h */,
+				C4779F29221E4D20002F2DB7 /* JRSwizzle.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1822,6 +1833,7 @@
 				C4225FF3206DE48F008532B9 /* HMWebSocketManager.m in Sources */,
 				C4BCAB4D2201A90A004393EC /* UIButton+PlaceContent.m in Sources */,
 				C4BCAB922201ABFA004393EC /* Y_StockChartView.m in Sources */,
+				C4779F2B221E4D21002F2DB7 /* JRSwizzle.m in Sources */,
 				C4225F7E206C8E63008532B9 /* BaseModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1965,12 +1977,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				DEVELOPMENT_TEAM = R5688PHUE9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BaseProject/Supporting Files/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2027,12 +2040,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				DEVELOPMENT_TEAM = R5688PHUE9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BaseProject/Supporting Files/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

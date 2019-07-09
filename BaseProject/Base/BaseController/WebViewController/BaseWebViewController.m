@@ -125,8 +125,9 @@
                 // Fallback on earlier versions
             }
         }
-        //进度监听
+        // 进度监听
         [_wk_WebView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
+        
         
         // 添加代理标识
         

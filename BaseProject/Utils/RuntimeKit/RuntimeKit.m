@@ -68,8 +68,8 @@
 /**
  获取类的实例方法列表：getter, setter, 对象方法等。但不能获取类方法
 
- @param class <#class description#>
- @return <#return value description#>
+ @param class 所属类
+ @return 方法列表数组
  */
 + (NSArray *)fetchMethodList:(Class)class {
     unsigned int count = 0;
@@ -88,8 +88,8 @@
 /**
  获取协议列表
  
- @param class <#class description#>
- @return <#return value description#>
+ @param class 所属类
+ @return 协议列表数组
  */
 + (NSArray *)fetchProtocolList:(Class)class {
     unsigned int count = 0;
